@@ -1,0 +1,4360 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://greybox/scale_viewer.gd" id="1_maekk"]
+
+[sub_resource type="Environment" id="Environment_nyofi"]
+background_mode = 1
+background_color = Color(0.80784315, 0.8509804, 0.8666667, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.85882354, 0.90588236, 0.9254902, 1)
+ambient_light_energy = 0.5
+tonemap_mode = 2
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n77fy"]
+friction = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrwfk"]
+cull_mode = 2
+albedo_color = Color(0.7490196, 0.76862746, 0.7411765, 1)
+roughness = 0.88
+
+[sub_resource type="BoxMesh" id="BoxMesh_ofqoj"]
+size = Vector3(100, 0.2, 80)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ah1im"]
+size = Vector3(100, 0.2, 80)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vwjoe"]
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.6784314, 0.7176471, 0.6862745, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6hrda"]
+_surfaces = [{
+"aabb": AABB(-50, 0.003, -40, 100, 1e-05, 80),
+"format": 34359738369,
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 288,
+"vertex_data": PackedByteArray("AABEwqabRDsAACDCAABEwqabRDsAACBCAABAwqabRDsAACDCAABAwqabRDsAACBCAAA8wqabRDsAACDCAAA8wqabRDsAACBCAAA4wqabRDsAACDCAAA4wqabRDsAACBCAAAwwqabRDsAACDCAAAwwqabRDsAACBCAAAswqabRDsAACDCAAAswqabRDsAACBCAAAowqabRDsAACDCAAAowqabRDsAACBCAAAkwqabRDsAACDCAAAkwqabRDsAACBCAAAcwqabRDsAACDCAAAcwqabRDsAACBCAAAYwqabRDsAACDCAAAYwqabRDsAACBCAAAUwqabRDsAACDCAAAUwqabRDsAACBCAAAQwqabRDsAACDCAAAQwqabRDsAACBCAAAIwqabRDsAACDCAAAIwqabRDsAACBCAAAEwqabRDsAACDCAAAEwqabRDsAACBCAAAAwqabRDsAACDCAAAAwqabRDsAACBCAAD4waabRDsAACDCAAD4waabRDsAACBCAADowaabRDsAACDCAADowaabRDsAACBCAADgwaabRDsAACDCAADgwaabRDsAACBCAADYwaabRDsAACDCAADYwaabRDsAACBCAADQwaabRDsAACDCAADQwaabRDsAACBCAADAwaabRDsAACDCAADAwaabRDsAACBCAAC4waabRDsAACDCAAC4waabRDsAACBCAACwwaabRDsAACDCAACwwaabRDsAACBCAACowaabRDsAACDCAACowaabRDsAACBCAACYwaabRDsAACDCAACYwaabRDsAACBCAACQwaabRDsAACDCAACQwaabRDsAACBCAACIwaabRDsAACDCAACIwaabRDsAACBCAACAwaabRDsAACDCAACAwaabRDsAACBCAABgwaabRDsAACDCAABgwaabRDsAACBCAABQwaabRDsAACDCAABQwaabRDsAACBCAABAwaabRDsAACDCAABAwaabRDsAACBCAAAwwaabRDsAACDCAAAwwaabRDsAACBCAAAQwaabRDsAACDCAAAQwaabRDsAACBCAAAAwaabRDsAACDCAAAAwaabRDsAACBCAADgwKabRDsAACDCAADgwKabRDsAACBCAADAwKabRDsAACDCAADAwKabRDsAACBCAACAwKabRDsAACDCAACAwKabRDsAACBCAABAwKabRDsAACDCAABAwKabRDsAACBCAAAAwKabRDsAACDCAAAAwKabRDsAACBCAACAv6abRDsAACDCAACAv6abRDsAACBCAACAP6abRDsAACDCAACAP6abRDsAACBCAAAAQKabRDsAACDCAAAAQKabRDsAACBCAABAQKabRDsAACDCAABAQKabRDsAACBCAACAQKabRDsAACDCAACAQKabRDsAACBCAADAQKabRDsAACDCAADAQKabRDsAACBCAADgQKabRDsAACDCAADgQKabRDsAACBCAAAAQaabRDsAACDCAAAAQaabRDsAACBCAAAQQaabRDsAACDCAAAQQaabRDsAACBCAAAwQaabRDsAACDCAAAwQaabRDsAACBCAABAQaabRDsAACDCAABAQaabRDsAACBCAABQQaabRDsAACDCAABQQaabRDsAACBCAABgQaabRDsAACDCAABgQaabRDsAACBCAACAQaabRDsAACDCAACAQaabRDsAACBCAACIQaabRDsAACDCAACIQaabRDsAACBCAACQQaabRDsAACDCAACQQaabRDsAACBCAACYQaabRDsAACDCAACYQaabRDsAACBCAACoQaabRDsAACDCAACoQaabRDsAACBCAACwQaabRDsAACDCAACwQaabRDsAACBCAAC4QaabRDsAACDCAAC4QaabRDsAACBCAADAQaabRDsAACDCAADAQaabRDsAACBCAADQQaabRDsAACDCAADQQaabRDsAACBCAADYQaabRDsAACDCAADYQaabRDsAACBCAADgQaabRDsAACDCAADgQaabRDsAACBCAADoQaabRDsAACDCAADoQaabRDsAACBCAAD4QaabRDsAACDCAAD4QaabRDsAACBCAAAAQqabRDsAACDCAAAAQqabRDsAACBCAAAEQqabRDsAACDCAAAEQqabRDsAACBCAAAIQqabRDsAACDCAAAIQqabRDsAACBCAAAQQqabRDsAACDCAAAQQqabRDsAACBCAAAUQqabRDsAACDCAAAUQqabRDsAACBCAAAYQqabRDsAACDCAAAYQqabRDsAACBCAAAcQqabRDsAACDCAAAcQqabRDsAACBCAAAkQqabRDsAACDCAAAkQqabRDsAACBCAAAoQqabRDsAACDCAAAoQqabRDsAACBCAAAsQqabRDsAACDCAAAsQqabRDsAACBCAAAwQqabRDsAACDCAAAwQqabRDsAACBCAAA4QqabRDsAACDCAAA4QqabRDsAACBCAAA8QqabRDsAACDCAAA8QqabRDsAACBCAABAQqabRDsAACDCAABAQqabRDsAACBCAABEQqabRDsAACDCAABEQqabRDsAACBCAABIwqabRDsAABzCAABIQqabRDsAABzCAABIwqabRDsAABjCAABIQqabRDsAABjCAABIwqabRDsAABTCAABIQqabRDsAABTCAABIwqabRDsAABDCAABIQqabRDsAABDCAABIwqabRDsAAAjCAABIQqabRDsAAAjCAABIwqabRDsAAATCAABIQqabRDsAAATCAABIwqabRDsAAADCAABIQqabRDsAAADCAABIwqabRDsAAPjBAABIQqabRDsAAPjBAABIwqabRDsAAOjBAABIQqabRDsAAOjBAABIwqabRDsAAODBAABIQqabRDsAAODBAABIwqabRDsAANjBAABIQqabRDsAANjBAABIwqabRDsAANDBAABIQqabRDsAANDBAABIwqabRDsAAMDBAABIQqabRDsAAMDBAABIwqabRDsAALjBAABIQqabRDsAALjBAABIwqabRDsAALDBAABIQqabRDsAALDBAABIwqabRDsAAKjBAABIQqabRDsAAKjBAABIwqabRDsAAJjBAABIQqabRDsAAJjBAABIwqabRDsAAJDBAABIQqabRDsAAJDBAABIwqabRDsAAIjBAABIQqabRDsAAIjBAABIwqabRDsAAIDBAABIQqabRDsAAIDBAABIwqabRDsAAGDBAABIQqabRDsAAGDBAABIwqabRDsAAFDBAABIQqabRDsAAFDBAABIwqabRDsAAEDBAABIQqabRDsAAEDBAABIwqabRDsAADDBAABIQqabRDsAADDBAABIwqabRDsAABDBAABIQqabRDsAABDBAABIwqabRDsAAADBAABIQqabRDsAAADBAABIwqabRDsAAODAAABIQqabRDsAAODAAABIwqabRDsAAMDAAABIQqabRDsAAMDAAABIwqabRDsAAIDAAABIQqabRDsAAIDAAABIwqabRDsAAEDAAABIQqabRDsAAEDAAABIwqabRDsAAADAAABIQqabRDsAAADAAABIwqabRDsAAIC/AABIQqabRDsAAIC/AABIwqabRDsAAIA/AABIQqabRDsAAIA/AABIwqabRDsAAABAAABIQqabRDsAAABAAABIwqabRDsAAEBAAABIQqabRDsAAEBAAABIwqabRDsAAIBAAABIQqabRDsAAIBAAABIwqabRDsAAMBAAABIQqabRDsAAMBAAABIwqabRDsAAOBAAABIQqabRDsAAOBAAABIwqabRDsAAABBAABIQqabRDsAAABBAABIwqabRDsAABBBAABIQqabRDsAABBBAABIwqabRDsAADBBAABIQqabRDsAADBBAABIwqabRDsAAEBBAABIQqabRDsAAEBBAABIwqabRDsAAFBBAABIQqabRDsAAFBBAABIwqabRDsAAGBBAABIQqabRDsAAGBBAABIwqabRDsAAIBBAABIQqabRDsAAIBBAABIwqabRDsAAIhBAABIQqabRDsAAIhBAABIwqabRDsAAJBBAABIQqabRDsAAJBBAABIwqabRDsAAJhBAABIQqabRDsAAJhBAABIwqabRDsAAKhBAABIQqabRDsAAKhBAABIwqabRDsAALBBAABIQqabRDsAALBBAABIwqabRDsAALhBAABIQqabRDsAALhBAABIwqabRDsAAMBBAABIQqabRDsAAMBBAABIwqabRDsAANBBAABIQqabRDsAANBBAABIwqabRDsAANhBAABIQqabRDsAANhBAABIwqabRDsAAOBBAABIQqabRDsAAOBBAABIwqabRDsAAOhBAABIQqabRDsAAOhBAABIwqabRDsAAPhBAABIQqabRDsAAPhBAABIwqabRDsAAABCAABIQqabRDsAAABCAABIwqabRDsAAARCAABIQqabRDsAAARCAABIwqabRDsAAAhCAABIQqabRDsAAAhCAABIwqabRDsAABBCAABIQqabRDsAABBCAABIwqabRDsAABRCAABIQqabRDsAABRCAABIwqabRDsAABhCAABIQqabRDsAABhCAABIwqabRDsAABxCAABIQqabRDsAABxC")
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37422"]
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.5568628, 0.6156863, 0.6, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xb4nh"]
+_surfaces = [{
+"aabb": AABB(-50, 0.003, -40, 100, 1e-05, 80),
+"format": 34359738369,
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 76,
+"vertex_data": PackedByteArray("AABIwqabRDsAACDCAABIwqabRDsAACBCAAA0wqabRDsAACDCAAA0wqabRDsAACBCAAAgwqabRDsAACDCAAAgwqabRDsAACBCAAAMwqabRDsAACDCAAAMwqabRDsAACBCAADwwaabRDsAACDCAADwwaabRDsAACBCAADIwaabRDsAACDCAADIwaabRDsAACBCAACgwaabRDsAACDCAACgwaabRDsAACBCAABwwaabRDsAACDCAABwwaabRDsAACBCAAAgwaabRDsAACDCAAAgwaabRDsAACBCAACgwKabRDsAACDCAACgwKabRDsAACBCAAAAAKabRDsAACDCAAAAAKabRDsAACBCAACgQKabRDsAACDCAACgQKabRDsAACBCAAAgQaabRDsAACDCAAAgQaabRDsAACBCAABwQaabRDsAACDCAABwQaabRDsAACBCAACgQaabRDsAACDCAACgQaabRDsAACBCAADIQaabRDsAACDCAADIQaabRDsAACBCAADwQaabRDsAACDCAADwQaabRDsAACBCAAAMQqabRDsAACDCAAAMQqabRDsAACBCAAAgQqabRDsAACDCAAAgQqabRDsAACBCAAA0QqabRDsAACDCAAA0QqabRDsAACBCAABIQqabRDsAACDCAABIQqabRDsAACBCAABIwqabRDsAACDCAABIQqabRDsAACDCAABIwqabRDsAAAzCAABIQqabRDsAAAzCAABIwqabRDsAAPDBAABIQqabRDsAAPDBAABIwqabRDsAAMjBAABIQqabRDsAAMjBAABIwqabRDsAAKDBAABIQqabRDsAAKDBAABIwqabRDsAAHDBAABIQqabRDsAAHDBAABIwqabRDsAACDBAABIQqabRDsAACDBAABIwqabRDsAAKDAAABIQqabRDsAAKDAAABIwqabRDsAAAAAAABIQqabRDsAAAAAAABIwqabRDsAAKBAAABIQqabRDsAAKBAAABIwqabRDsAACBBAABIQqabRDsAACBBAABIwqabRDsAAHBBAABIQqabRDsAAHBBAABIwqabRDsAAKBBAABIQqabRDsAAKBBAABIwqabRDsAAMhBAABIQqabRDsAAMhBAABIwqabRDsAAPBBAABIQqabRDsAAPBBAABIwqabRDsAAAxCAABIQqabRDsAAAxCAABIwqabRDsAACBCAABIQqabRDsAACBC")
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efrfj"]
+cull_mode = 2
+albedo_color = Color(0.14901961, 0.23137255, 0.28627452, 1)
+roughness = 0.88
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qfqjn"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 100.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_28lb2"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 80.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_akp1n"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 100.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hn0nb"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 80.0
+radial_segments = 32
+
+[sub_resource type="BoxMesh" id="BoxMesh_5fw4j"]
+size = Vector3(0.18, 0.8, 0.18)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fndyb"]
+size = Vector3(0.18, 0.8, 0.18)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c2rmr"]
+size = Vector3(0.18, 0.8, 0.18)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gjtn1"]
+size = Vector3(0.18, 0.8, 0.18)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8d5c5"]
+cull_mode = 2
+albedo_color = Color(0.4509804, 0.6039216, 0.5529412, 1)
+roughness = 0.88
+
+[sub_resource type="BoxMesh" id="BoxMesh_u1c1r"]
+size = Vector3(14, 0.008, 14)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_idgkm"]
+cull_mode = 2
+albedo_color = Color(0.9490196, 0.94509804, 0.9098039, 1)
+roughness = 0.88
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_d3auv"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 14.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_noaea"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 14.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ikfis"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 14.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h5vk7"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 14.0
+radial_segments = 32
+
+[sub_resource type="SystemFont" id="SystemFont_1nfjg"]
+font_names = PackedStringArray("Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0fkd"]
+cull_mode = 2
+albedo_color = Color(0.08627451, 0.48235294, 0.46666667, 1)
+roughness = 0.88
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_si2a3"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 14.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gcgkn"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f6mkx"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cral1"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 14.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hte1g"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sx1yn"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r525f"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.012
+radial_segments = 32
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drprl"]
+cull_mode = 2
+albedo_color = Color(0.7176471, 0.6156863, 0.40392157, 1)
+roughness = 0.88
+
+[sub_resource type="BoxMesh" id="BoxMesh_s3of5"]
+size = Vector3(14, 0.008, 14)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ynoew"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 14.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ktx07"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 14.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mfevr"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 14.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3qejb"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 14.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ifry7"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 14.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tql6y"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tut76"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j0l84"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 14.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_isj8u"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y87fp"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rifoq"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.012
+radial_segments = 32
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo4w1"]
+cull_mode = 2
+albedo_color = Color(0.32156864, 0.36862746, 0.39607844, 1)
+roughness = 0.88
+
+[sub_resource type="BoxMesh" id="BoxMesh_264f4"]
+size = Vector3(30, 0.012, 12)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hetmy"]
+cull_mode = 2
+albedo_color = Color(0.84705883, 0.6156863, 0.20784314, 1)
+roughness = 0.88
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l7m5y"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.9816492
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5m2m6"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.98164886
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_374py"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.98164946
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fdb5a"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.98164994
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3hpfn"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.981649
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_acu4t"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.9816498
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5xapa"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.98165005
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vcl02"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.9816495
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kyubj"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.981649
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ooho4"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.9816484
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_77t28"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.9816484
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tppq1"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.98164916
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w1cq4"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.9816487
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6p6qr"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.9816484
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ms286"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.98164934
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s4bhk"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.98164916
+radial_segments = 32
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_oxdsd"]
+_surfaces = [{
+"aabb": AABB(-26, 0.012, -26, 26, 1e-05, 26),
+"format": 34359742471,
+"index_count": 384,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAgADAAQAAwAFAAQABAAFAAYABQAHAAYABgAHAAgABwAJAAgACAAJAAoACQALAAoACgALAAwACwANAAwADAANAA4ADQAPAA4ADgAPABAADwARABAAEAARABIAEQATABIAEgATABQAEwAVABQAFAAVABYAFQAXABYAFgAXABgAFwAZABgAGAAZABoAGQAbABoAGgAbABwAGwAdABwAHAAdAB4AHQAfAB4AHgAfACAAHwAhACAAIAAhACIAIQAjACIAIgAjACQAIwAlACQAJAAlACYAJQAnACYAJgAnACgAJwApACgAKAApACoAKQArACoAKgArACwAKwAtACwALAAtAC4ALQAvAC4ALgAvADAALwAxADAAMAAxADIAMQAzADIAMgAzADQAMwA1ADQANAA1ADYANQA3ADYANgA3ADgANwA5ADgAOAA5ADoAOQA7ADoAOgA7ADwAOwA9ADwAPAA9AD4APQA/AD4APgA/AEAAPwBBAEAAQABBAEIAQQBDAEIAQgBDAEQAQwBFAEQARABFAEYARQBHAEYARgBHAEgARwBJAEgASABJAEoASQBLAEoASgBLAEwASwBNAEwATABNAE4ATQBPAE4ATgBPAFAATwBRAFAAUABRAFIAUQBTAFIAUgBTAFQAUwBVAFQAVABVAFYAVQBXAFYAVgBXAFgAVwBZAFgAWABZAFoAWQBbAFoAWgBbAFwAWwBdAFwAXABdAF4AXQBfAF4AXgBfAGAAXwBhAGAAYABhAGIAYQBjAGIAYgBjAGQAYwBlAGQAZABlAGYAZQBnAGYAZgBnAGgAZwBpAGgAaABpAGoAaQBrAGoAagBrAGwAawBtAGwAbABtAG4AbQBvAG4AbgBvAHAAbwBxAHAAcABxAHIAcQBzAHIAcgBzAHQAcwB1AHQAdAB1AHYAdQB3AHYAdgB3AHgAdwB5AHgAeAB5AHoAeQB7AHoAegB7AHwAewB9AHwAfAB9AH4AfQB/AH4AfgB/AIAAfwCBAIAA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 130,
+"vertex_data": PackedByteArray("AABgwaabRDwAFPcmAADQwaabRDwAbmUnu+5fwaabRDxa6a++9u/PwaabRDyvWCO/7bpfwaabRDzK2y+/3L/PwaabRDwXTKO/oGRfwaabRDzk04O/uW/PwaabRDyn0vS/3+tewaabRDyPpa+/mf/OwaabRDy8GSPAv1BewaabRDwkXNu/jW/OwaabRDz9sEvAVpNdwaabRDxzeAPArL/NwaabRDzWKHTAw7NcwaabRDyOLhnAEPDMwaabRDyEPY7AJ7JbwaabRDwKzS7A2wDMwaabRDyuUKLAqo5awaabRDyRUETAMPLKwaabRDzQSrbAeUlZwaabRDzStVnAOcTJwaabRDzWKMrAxuJXwaabRDyB+W7AJnfIwaabRDyv593AyVpWwaabRDwrDILAKQvHwaabRDxQhPHAvrFUwaabRDyIh4zAeoDFwaabRDzafQLB5+dSwaabRDw57ZbAV9fDwaabRDxsJQzBiv1QwaabRDykO6HAABDCwaabRDxitxXB8/JOwaabRDwzcavAvSrAwaabRDxBMh/BcshMwaabRDxRjLXA1ye+waabRDyUlCjBXX5KwaabRDxwi7/Anwe8waabRDzo3DHBDhVIwaabRDwGbcnAaMq5waabRDzPCTvB5YxFwaabRDyNL9PAi3C3waabRDzeGUTBReZCwaabRDyC0dzAZPq0waabRDywC03BlyFAwaabRDxqUebAVWiywaabRDzj3VXBSD89waabRDzPre/Aw7qvwaabRDwbj17Byz86waabRDw95fjAGPKswaabRDwCHmfBlSM3waabRDwl+wDBwg6qwaabRDxFiW/BIuszwaabRDzIbwXBMhGnwaabRDyYz3fB8JYwwaabRDzXzwnB3/mjwaabRDy073/BgyctwaabRDymGg7BQ8mgwaabRDws9IPBYp0pwaabRDyLTxLB23+dwaabRDwm3IfBGvklwaabRDzgbRbBKh6awaabRDwsr4vBOjsiwaabRDwDdRrBtaSWwaabRDyobI/BVWQewaabRDxVZB7BBhSTwaabRDwGFJPBA3UawaabRDw6OyLBqGyPwaabRDy1pJbB4G0WwaabRDwa+SXBLK+LwaabRDwqHprBi08SwaabRDxinSnBJtyHwaabRDzbf53BphoOwaabRDyDJy3BLPSDwaabRDxDyaDB188JwaabRDzwljDBtO9/waabRDzf+aPByG8FwaabRDwi6zPBmM93waabRDwyEafBJfsAwaabRDyVIzfBRYlvwaabRDzCDqrBPeX4wKabRDzLPzrBAh5nwaabRDwY8qzBz63vwKabRDxIPz3BG49ewaabRDzDuq/BalHmwKabRDyXIUDB491VwaabRDxVaLLBgtHcwKabRDxF5kLBsAtNwaabRDxk+rTBjS/TwKabRDzljEXB3hlEwaabRDyLcLfBBm3JwKabRDwOFUjBzwk7waabRDxoyrnBcIu/wKabRDxdfkrB6NwxwaabRDyfB7zBUYy1wKabRDxyyEzBlJQowaabRDzXJ77BM3GrwKabRDzz8k7BQTIfwaabRDy9KsDBpDuhwKabRDyK/VDBYrcVwaabRDwAEMLBOe2WwKabRDzn51LBbCUMwaabRDxX18PBiIeMwKabRDy+sVTB2n0CwaabRDx6gMXBKwyCwKabRDzJWlbBUITxwKabRDwpC8fBgfluwKabRDzG4lfBr+fdwKabRDwmd8jB0rVZwKabRDx5SVnB1ijKwKabRDw5xMnBkVBEwKabRDyqjlrB0Eq2wKabRDww8srBCs0uwKabRDwnslvBrlCiwKabRDzbAMzBji4ZwKabRDzDs1zBhD2OwKabRDwQ8MzBc3gDwKabRDxWk13B1ih0wKabRDysv83BJFzbv6abRDy/UF7B/bBLwKabRDyNb87Bj6Wvv6abRDzf617BvBkjwKabRDyZ/87B5NODv6abRDygZF/Bp9L0v6abRDy5b8/Bytsvv6abRDztul/BF0yjv6abRDzcv8/BWumvvqabRDy77l/Br1gjv6abRDz278/BAE85p6abRDwAAGDBgBKsp6abRDwAANDB/3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/78=")
+}]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3d2n6"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.9816492
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cf61g"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.98164886
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gpr0c"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.98164946
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_opnmq"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.98164994
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jo5pf"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.981649
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0033i"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.9816498
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sskx2"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.98165005
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tp4ij"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.9816495
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ay2g6"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.981649
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7lqb7"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.9816484
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_eokdq"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.9816484
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_70typ"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.98164916
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7ag0d"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.9816487
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_d2u5l"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.9816484
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_by74h"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.98164934
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bcpek"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.98164916
+radial_segments = 32
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6voe3"]
+_surfaces = [{
+"aabb": AABB(8.5722445e-16, 0.012, 0, 26, 1e-05, 26),
+"format": 34359742471,
+"index_count": 384,
+"index_data": PackedByteArray("AAACAAEAAQACAAMAAgAEAAMAAwAEAAUABAAGAAUABQAGAAcABgAIAAcABwAIAAkACAAKAAkACQAKAAsACgAMAAsACwAMAA0ADAAOAA0ADQAOAA8ADgAQAA8ADwAQABEAEAASABEAEQASABMAEgAUABMAEwAUABUAFAAWABUAFQAWABcAFgAYABcAFwAYABkAGAAaABkAGQAaABsAGgAcABsAGwAcAB0AHAAeAB0AHQAeAB8AHgAgAB8AHwAgACEAIAAiACEAIQAiACMAIgAkACMAIwAkACUAJAAmACUAJQAmACcAJgAoACcAJwAoACkAKAAqACkAKQAqACsAKgAsACsAKwAsAC0ALAAuAC0ALQAuAC8ALgAwAC8ALwAwADEAMAAyADEAMQAyADMAMgA0ADMAMwA0ADUANAA2ADUANQA2ADcANgA4ADcANwA4ADkAOAA6ADkAOQA6ADsAOgA8ADsAOwA8AD0APAA+AD0APQA+AD8APgBAAD8APwBAAEEAQABCAEEAQQBCAEMAQgBEAEMAQwBEAEUARABGAEUARQBGAEcARgBIAEcARwBIAEkASABKAEkASQBKAEsASgBMAEsASwBMAE0ATABOAE0ATQBOAE8ATgBQAE8ATwBQAFEAUABSAFEAUQBSAFMAUgBUAFMAUwBUAFUAVABWAFUAVQBWAFcAVgBYAFcAVwBYAFkAWABaAFkAWQBaAFsAWgBcAFsAWwBcAF0AXABeAF0AXQBeAF8AXgBgAF8AXwBgAGEAYABiAGEAYQBiAGMAYgBkAGMAYwBkAGUAZABmAGUAZQBmAGcAZgBoAGcAZwBoAGkAaABqAGkAaQBqAGsAagBsAGsAawBsAG0AbABuAG0AbQBuAG8AbgBwAG8AbwBwAHEAcAByAHEAcQByAHMAcgB0AHMAcwB0AHUAdAB2AHUAdQB2AHcAdgB4AHcAdwB4AHkAeAB6AHkAeQB6AHsAegB8AHsAewB8AH0AfAB+AH0AfQB+AH8AfgCAAH8AfwCAAIEA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 130,
+"vertex_data": PackedByteArray("ABR3JqabRDwAAGBBAG7lJqabRDwAANBBWumvPqabRDy77l9Br1gjP6abRDz2789BytsvP6abRDztul9BF0yjP6abRDzcv89B5NODP6abRDygZF9Bp9L0P6abRDy5b89Bj6WvP6abRDzf615BvBkjQKabRDyZ/85BJFzbP6abRDy/UF5B/bBLQKabRDyNb85Bc3gDQKabRDxWk11B1ih0QKabRDysv81Bji4ZQKabRDzDs1xBhD2OQKabRDwQ8MxBCs0uQKabRDwnsltBrlCiQKabRDzbAMxBkVBEQKabRDyqjlpB0Eq2QKabRDww8spB0rVZQKabRDx5SVlB1ijKQKabRDw5xMlBgfluQKabRDzG4ldBr+fdQKabRDwmd8hBKwyCQKabRDzJWlZBUITxQKabRDwpC8dBiIeMQKabRDy+sVRB2n0CQaabRDx6gMVBOe2WQKabRDzn51JBbCUMQaabRDxX18NBpDuhQKabRDyK/VBBYrcVQaabRDwAEMJBM3GrQKabRDzz8k5BQTIfQaabRDy9KsBBUYy1QKabRDxyyExBlJQoQaabRDzXJ75BcIu/QKabRDxdfkpB6NwxQaabRDyfB7xBBm3JQKabRDwOFUhBzwk7QaabRDxoyrlBjS/TQKabRDzljEVB3hlEQaabRDyLcLdBgtHcQKabRDxF5kJBsAtNQaabRDxk+rRBalHmQKabRDyXIUBB491VQaabRDxVaLJBz63vQKabRDxIPz1BG49eQaabRDzDuq9BPeX4QKabRDzLPzpBAh5nQaabRDwY8qxBJfsAQaabRDyVIzdBRYlvQaabRDzCDqpByG8FQaabRDwi6zNBmM93QaabRDwyEadB188JQaabRDzwljBBtO9/QaabRDzf+aNBphoOQaabRDyDJy1BLPSDQaabRDxDyaBBi08SQaabRDxinSlBJtyHQaabRDzbf51B4G0WQaabRDwa+SVBLK+LQaabRDwqHppBA3UaQaabRDw6OyJBqGyPQaabRDy1pJZBVWQeQaabRDxVZB5BBhSTQaabRDwGFJNBOjsiQaabRDwDdRpBtaSWQaabRDyobI9BGvklQaabRDzgbRZBKh6aQaabRDwsr4tBYp0pQaabRDyLTxJB23+dQaabRDwm3IdBgyctQaabRDymGg5BQ8mgQaabRDws9INB8JYwQaabRDzXzwlB3/mjQaabRDy0739BIuszQaabRDzIbwVBMhGnQaabRDyYz3dBlSM3QaabRDwl+wBBwg6qQaabRDxFiW9Byz86QaabRDw95fhAGPKsQaabRDwCHmdBSD89QaabRDzPre9Aw7qvQaabRDwbj15BlyFAQaabRDxqUeZAVWiyQaabRDzj3VVBReZCQaabRDyC0dxAZPq0QaabRDywC01B5YxFQaabRDyNL9NAi3C3QaabRDzeGURBDhVIQaabRDwGbclAaMq5QaabRDzPCTtBXX5KQaabRDxwi79Anwe8QaabRDzo3DFBcshMQaabRDxRjLVA1ye+QaabRDyUlChB8/JOQaabRDwzcatAvSrAQaabRDxBMh9Biv1QQaabRDykO6FAABDCQaabRDxitxVB5+dSQaabRDw57ZZAV9fDQaabRDxsJQxBvrFUQaabRDyIh4xAeoDFQaabRDzafQJByVpWQaabRDwrDIJAKQvHQaabRDxQhPFAxuJXQaabRDyB+W5AJnfIQaabRDyv591AeUlZQaabRDzStVlAOcTJQaabRDzWKMpAqo5aQaabRDyRUERAMPLKQaabRDzQSrZAJ7JbQaabRDwKzS5A2wDMQaabRDyuUKJAw7NcQaabRDyOLhlAEPDMQaabRDyEPY5AVpNdQaabRDxzeANArL/NQaabRDzWKHRAv1BeQaabRDwkXNs/jW/OQaabRDz9sEtA3+teQaabRDyPpa8/mf/OQaabRDy8GSNAoGRfQaabRDzk04M/uW/PQaabRDyn0vQ/7bpfQaabRDzK2y8/3L/PQaabRDwXTKM/u+5fQaabRDxa6a8+9u/PQaabRDyvWCM/AABgQaabRDwAAAAAAADQQaabRDwAAAAA/3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/78=")
+}]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dolex"]
+size = Vector3(1.2, 0.008, 0.07)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wa8xf"]
+size = Vector3(1.2, 0.008, 0.07)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mlmhm"]
+size = Vector3(1.2, 0.008, 0.07)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qpq1a"]
+size = Vector3(1.2, 0.008, 0.07)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wi50h"]
+size = Vector3(1.2, 0.008, 0.07)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wbxja"]
+size = Vector3(1.2, 0.008, 0.07)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xdj8i"]
+size = Vector3(1.2, 0.008, 0.07)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y5yrp"]
+size = Vector3(1.2, 0.008, 0.07)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5273l"]
+size = Vector3(1.2, 0.008, 0.07)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l6n48"]
+size = Vector3(1.2, 0.008, 0.07)
+
+[sub_resource type="BoxMesh" id="BoxMesh_biyo7"]
+size = Vector3(30, 0.008, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_swi5i"]
+size = Vector3(30, 0.008, 0.06)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xa42r"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 30.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3icw6"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w5kpm"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7gip4"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 12.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4x6bj"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o1smk"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8rd5h"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_iv2ua"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l2kxf"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nmo7q"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yw6hu"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_iwr2f"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_85wj6"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a45uj"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_52udj"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2li0h"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1swub"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_waks1"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vb5e7"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7kxxy"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j8t3a"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6ut07"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gx3lf"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rjsku"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cwk6r"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g58r7"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mgxts"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4xjhc"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_26rp2"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_trvvp"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8mroo"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0duyf"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hsmr6"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0qjcb"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g8wh3"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oxoga"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xs2h0"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2tf1o"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0n18d"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ac40n"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f2vcd"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vlrp0"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_16xra"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dfkwh"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_afwxr"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_30akf"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_q4lod"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 100.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1lg7r"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999786
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_p4x04"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999786
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3866s"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 80.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_olkrr"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999786
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h005p"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999786
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3gks6"]
+top_radius = 0.035
+bottom_radius = 0.035
+height = 3.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oouer"]
+top_radius = 0.035
+bottom_radius = 0.035
+height = 0.721109
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ok4mf"]
+top_radius = 0.035
+bottom_radius = 0.035
+height = 0.721109
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0ondm"]
+top_radius = 0.035
+bottom_radius = 0.035
+height = 3.0
+radial_segments = 32
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vmsd"]
+cull_mode = 2
+albedo_color = Color(0.14901961, 0.19215687, 0.22352941, 1)
+roughness = 0.88
+
+[sub_resource type="BoxMesh" id="BoxMesh_ypej6"]
+size = Vector3(3.8000002, 0.24, 8.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bfux"]
+size = Vector3(3.8000002, 0.24, 8.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtua6"]
+cull_mode = 2
+albedo_color = Color(0.6627451, 0.7176471, 0.7294118, 1)
+roughness = 0.88
+
+[sub_resource type="BoxMesh" id="BoxMesh_mtedk"]
+size = Vector3(4.3, 0.12, 8.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_awm4o"]
+size = Vector3(4.3, 0.12, 8.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q845"]
+cull_mode = 2
+albedo_color = Color(0.39607844, 0.5921569, 0.70980394, 1)
+roughness = 0.88
+
+[sub_resource type="BoxMesh" id="BoxMesh_hgfwx"]
+size = Vector3(0.1500001, 2.8, 8.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xnddd"]
+size = Vector3(0.1500001, 2.8, 8.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7g101"]
+size = Vector3(0.1500001, 2.8, 8.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qfc4r"]
+size = Vector3(0.1500001, 2.8, 8.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bfoh0"]
+size = Vector3(4.3, 2.8, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3y14w"]
+size = Vector3(4.3, 2.8, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4icrw"]
+size = Vector3(1.6, 2.8, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hg77o"]
+size = Vector3(1.6, 2.8, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vass1"]
+size = Vector3(1.6, 2.8, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wi32i"]
+size = Vector3(1.6, 2.8, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kafva"]
+size = Vector3(0.8, 0.90000004, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dfy6"]
+size = Vector3(0.8, 0.90000004, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0hdr7"]
+size = Vector3(0.8, 1.9, 0.06)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2blu"]
+size = Vector3(0.8, 1.9, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ld18u"]
+size = Vector3(1.3500001, 2.8, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6twyo"]
+size = Vector3(1.3500001, 2.8, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_csjjp"]
+size = Vector3(1.3500001, 2.8, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6nco4"]
+size = Vector3(1.3500001, 2.8, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ktbir"]
+size = Vector3(1.6, 0.8, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c0noj"]
+size = Vector3(1.6, 0.8, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iy3ct"]
+size = Vector3(1.6, 2, 0.06)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4gk0p"]
+size = Vector3(1.6, 2, 0.06)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hf2ta"]
+size = Vector2(4.3, 8.8)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3lsii"]
+data = PackedVector3Array(2.1499999, 0, 4.4, -2.1499999, 0, 4.4, 2.1499999, 0, -4.4, -2.1499999, 0, 4.4, -2.1499999, 0, -4.4, 2.1499999, 0, -4.4)
+backface_collision = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ly6rd"]
+size = Vector3(4, 0.004, 2.2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2py71"]
+top_radius = 0.35
+bottom_radius = 0.35
+height = 0.3
+radial_segments = 32
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3h7wb"]
+height = 0.3
+radius = 0.35
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nosyb"]
+top_radius = 0.35
+bottom_radius = 0.35
+height = 0.3
+radial_segments = 32
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rhbon"]
+height = 0.3
+radius = 0.35
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v46yv"]
+top_radius = 0.35
+bottom_radius = 0.35
+height = 0.3
+radial_segments = 32
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_iuw30"]
+height = 0.3
+radius = 0.35
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_u60nt"]
+top_radius = 0.35
+bottom_radius = 0.35
+height = 0.3
+radial_segments = 32
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5t2gp"]
+height = 0.3
+radius = 0.35
+
+[sub_resource type="BoxMesh" id="BoxMesh_fs3mq"]
+size = Vector3(1.6, 0.08, 2.2135942)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ywkmy"]
+size = Vector3(1.6, 0.08, 2.2135942)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6gb4q"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 8.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7bqqo"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3qcyc"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_davvu"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 4.3
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xygpn"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l0huk"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_se680"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 3.5
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t8cud"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_e45l6"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8csx3"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 5.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1b3pk"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_37s2f"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ryhbe"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 4.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w1jyj"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_faofx"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bs2lp"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 2.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ubog0"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oljd8"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mr3t8"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.7
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2segm"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oefkn"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jy45v"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_m8vsa"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.24000001
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5do3g"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.24000001
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wdi1j"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 1.6
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_i2nmt"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f7oyw"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kf3wq"]
+top_radius = 0.009
+bottom_radius = 0.009
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y6krm"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.24000001
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_15vrv"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.24000001
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uqkag"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 2.2
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_31cqp"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vm24u"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_em7fi"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_iin4h"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 5.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o6cn6"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 4.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fgbwp"]
+top_radius = 0.016
+bottom_radius = 0.016
+height = 5.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hug3a"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 4.0
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nuai3"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_erskj"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999977
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7tkcp"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 3.1000004
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uiuaa"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999786
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l8wrr"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.23999786
+radial_segments = 32
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8ba2o"]
+resource_local_to_scene = true
+radius = 0.22
+height = 0.7
+radial_segments = 16
+
+[sub_resource type="SphereMesh" id="SphereMesh_oeevf"]
+radius = 0.3
+height = 0.6
+radial_segments = 16
+rings = 8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_d8wyr"]
+resource_local_to_scene = true
+radius = 0.1
+height = 0.43
+radial_segments = 16
+rings = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_4jlto"]
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_r7f1o"]
+resource_local_to_scene = true
+radius = 0.09
+height = 0.36
+radial_segments = 16
+rings = 6
+
+[sub_resource type="BoxMesh" id="BoxMesh_tn42y"]
+size = Vector3(0.22, 0.16, 0.32)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kkf6e"]
+resource_local_to_scene = true
+radius = 0.1
+height = 0.43
+radial_segments = 16
+rings = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_2e0ht"]
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5qvdq"]
+resource_local_to_scene = true
+radius = 0.09
+height = 0.36
+radial_segments = 16
+rings = 6
+
+[sub_resource type="BoxMesh" id="BoxMesh_htput"]
+size = Vector3(0.22, 0.16, 0.32)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yqj4d"]
+size = Vector3(0.12, 0.1, 0.03)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_00qfq"]
+resource_local_to_scene = true
+radius = 0.3
+height = 1.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kw3im"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 1.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7oxs6"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.24000001
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wxjkn"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.24000001
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7worm"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sn8nf"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.24000001
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2gyen"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.24000001
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oy6ay"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.6
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_udb43"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.24000001
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_soy5x"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.24000001
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rnx6y"]
+top_radius = 0.006
+bottom_radius = 0.006
+height = 0.54
+radial_segments = 32
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ybwcw"]
+resource_local_to_scene = true
+radius = 0.22
+height = 0.7
+radial_segments = 16
+
+[sub_resource type="SphereMesh" id="SphereMesh_32atx"]
+radius = 0.3
+height = 0.6
+radial_segments = 16
+rings = 8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qqwid"]
+resource_local_to_scene = true
+radius = 0.1
+height = 0.43
+radial_segments = 16
+rings = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_iww6b"]
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qvrr2"]
+resource_local_to_scene = true
+radius = 0.09
+height = 0.36
+radial_segments = 16
+rings = 6
+
+[sub_resource type="BoxMesh" id="BoxMesh_krj7e"]
+size = Vector3(0.22, 0.16, 0.32)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_k8lsx"]
+resource_local_to_scene = true
+radius = 0.1
+height = 0.43
+radial_segments = 16
+rings = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_w242i"]
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rej0c"]
+resource_local_to_scene = true
+radius = 0.09
+height = 0.36
+radial_segments = 16
+rings = 6
+
+[sub_resource type="BoxMesh" id="BoxMesh_cwf67"]
+size = Vector3(0.22, 0.16, 0.32)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cx66v"]
+size = Vector3(0.12, 0.1, 0.03)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s1d7w"]
+resource_local_to_scene = true
+radius = 0.3
+height = 1.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fk0ew"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 1.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w7vaf"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.24
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jc8w7"]
+top_radius = 0.009
+bottom_radius = 0.009
+height = 0.24
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0fobw"]
+top_radius = 0.006
+bottom_radius = 0.006
+height = 0.54
+radial_segments = 32
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bp5ue"]
+resource_local_to_scene = true
+radius = 0.22
+height = 0.7
+radial_segments = 16
+
+[sub_resource type="SphereMesh" id="SphereMesh_kl6kt"]
+radius = 0.3
+height = 0.6
+radial_segments = 16
+rings = 8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xt8cd"]
+resource_local_to_scene = true
+radius = 0.1
+height = 0.43
+radial_segments = 16
+rings = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_2y6m8"]
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rmnsa"]
+resource_local_to_scene = true
+radius = 0.09
+height = 0.36
+radial_segments = 16
+rings = 6
+
+[sub_resource type="BoxMesh" id="BoxMesh_f07om"]
+size = Vector3(0.22, 0.16, 0.32)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_njufu"]
+resource_local_to_scene = true
+radius = 0.1
+height = 0.43
+radial_segments = 16
+rings = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_q2vad"]
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5ww3y"]
+resource_local_to_scene = true
+radius = 0.09
+height = 0.36
+radial_segments = 16
+rings = 6
+
+[sub_resource type="BoxMesh" id="BoxMesh_73tgu"]
+size = Vector3(0.22, 0.16, 0.32)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ut1rd"]
+size = Vector3(0.12, 0.1, 0.03)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5uyeq"]
+resource_local_to_scene = true
+radius = 0.3
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riaq1"]
+cull_mode = 2
+albedo_color = Color(0.4745098, 0.44313726, 0.5803922, 1)
+roughness = 0.88
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xi8co"]
+resource_local_to_scene = true
+radius = 0.22
+height = 0.7
+radial_segments = 16
+
+[sub_resource type="SphereMesh" id="SphereMesh_b8ack"]
+radius = 0.3
+height = 0.6
+radial_segments = 16
+rings = 8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3p5rt"]
+resource_local_to_scene = true
+radius = 0.1
+height = 0.43
+radial_segments = 16
+rings = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_ijt3n"]
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ky357"]
+resource_local_to_scene = true
+radius = 0.09
+height = 0.36
+radial_segments = 16
+rings = 6
+
+[sub_resource type="BoxMesh" id="BoxMesh_t0s8c"]
+size = Vector3(0.22, 0.16, 0.32)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_aiu45"]
+resource_local_to_scene = true
+radius = 0.1
+height = 0.43
+radial_segments = 16
+rings = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_1xfgk"]
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3o3pa"]
+resource_local_to_scene = true
+radius = 0.09
+height = 0.36
+radial_segments = 16
+rings = 6
+
+[sub_resource type="BoxMesh" id="BoxMesh_weti2"]
+size = Vector3(0.22, 0.16, 0.32)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g1vsq"]
+size = Vector3(0.12, 0.1, 0.03)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rumuw"]
+resource_local_to_scene = true
+radius = 0.3
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3g7d1"]
+cull_mode = 2
+albedo_color = Color(0.79607844, 0.4627451, 0.32156864, 1)
+roughness = 0.88
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_q6r7v"]
+resource_local_to_scene = true
+radius = 0.22
+height = 0.7
+radial_segments = 16
+
+[sub_resource type="SphereMesh" id="SphereMesh_k663l"]
+radius = 0.3
+height = 0.6
+radial_segments = 16
+rings = 8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_eycv1"]
+resource_local_to_scene = true
+radius = 0.1
+height = 0.43
+radial_segments = 16
+rings = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_bqpfk"]
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3opmj"]
+resource_local_to_scene = true
+radius = 0.09
+height = 0.36
+radial_segments = 16
+rings = 6
+
+[sub_resource type="BoxMesh" id="BoxMesh_ft4a0"]
+size = Vector3(0.22, 0.16, 0.32)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_khvy5"]
+resource_local_to_scene = true
+radius = 0.1
+height = 0.43
+radial_segments = 16
+rings = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_wlym4"]
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_denqx"]
+resource_local_to_scene = true
+radius = 0.09
+height = 0.36
+radial_segments = 16
+rings = 6
+
+[sub_resource type="BoxMesh" id="BoxMesh_brsl7"]
+size = Vector3(0.22, 0.16, 0.32)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6n11m"]
+size = Vector3(0.12, 0.1, 0.03)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqxux"]
+resource_local_to_scene = true
+radius = 0.3
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgpc6"]
+cull_mode = 2
+albedo_color = Color(0.7411765, 0.54509807, 0.32156864, 1)
+roughness = 0.88
+
+[sub_resource type="BoxMesh" id="BoxMesh_b160g"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sv6d4"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b28rr"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i8qlp"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rn454"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6qtn1"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4scbm"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.9
+radial_segments = 32
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_o44ok"]
+height = 0.9
+radius = 0.3
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kco1o"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.9
+radial_segments = 32
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_o3cc4"]
+height = 0.9
+radius = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_14661"]
+size = Vector3(0.8, 0.6, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_biyjf"]
+size = Vector3(0.8, 0.6, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kp6oo"]
+radius = 0.3
+height = 1.8
+
+[node name="ScaleValidation" type="Node3D" unique_id=802500068]
+script = ExtResource("1_maekk")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=950898668]
+environment = SubResource("Environment_nyofi")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=281354110]
+transform = Transform3D(0.88294756, 0.36994863, -0.2890356, 0, 0.6156615, 0.7880107, 0.46947157, -0.6957722, 0.5435968, 0, 0, 0)
+light_color = Color(1, 0.94509804, 0.85882354, 1)
+light_energy = 1.1
+shadow_enabled = true
+
+[node name="Site" type="Node3D" parent="." unique_id=840365756]
+metadata/size_m = Vector2(100, 80)
+
+[node name="Ground_100x80" type="StaticBody3D" parent="Site" unique_id=1339785202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+physics_material_override = SubResource("PhysicsMaterial_n77fy")
+
+[node name="Mesh" type="MeshInstance3D" parent="Site/Ground_100x80" unique_id=1929349293]
+material_override = SubResource("StandardMaterial3D_xrwfk")
+mesh = SubResource("BoxMesh_ofqoj")
+
+[node name="Collision" type="CollisionShape3D" parent="Site/Ground_100x80" unique_id=1571336826]
+shape = SubResource("BoxShape3D_ah1im")
+
+[node name="MeterGrid" type="Node3D" parent="Site" unique_id=1531519664]
+
+[node name="OneMeterGrid" type="MeshInstance3D" parent="Site/MeterGrid" unique_id=454816365]
+material_override = SubResource("StandardMaterial3D_vwjoe")
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_6hrda")
+
+[node name="FiveMeterGrid" type="MeshInstance3D" parent="Site/MeterGrid" unique_id=1950212196]
+material_override = SubResource("StandardMaterial3D_37422")
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_xb4nh")
+
+[node name="Boundary" type="Node3D" parent="Site" unique_id=1916441055]
+
+[node name="Line" type="MeshInstance3D" parent="Site/Boundary" unique_id=1650803139]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.04, -40)
+material_override = SubResource("StandardMaterial3D_efrfj")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qfqjn")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Boundary" unique_id=364981904]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 50, 0.04, 0)
+material_override = SubResource("StandardMaterial3D_efrfj")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_28lb2")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Boundary" unique_id=752670659]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.04, 40)
+material_override = SubResource("StandardMaterial3D_efrfj")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_akp1n")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/Boundary" unique_id=1717181755]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -50, 0.04, 0)
+material_override = SubResource("StandardMaterial3D_efrfj")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_hn0nb")
+
+[node name="Corner" type="MeshInstance3D" parent="Site/Boundary" unique_id=1724414120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.91, 0.4, -39.91)
+material_override = SubResource("StandardMaterial3D_efrfj")
+mesh = SubResource("BoxMesh_5fw4j")
+
+[node name="Corner2" type="MeshInstance3D" parent="Site/Boundary" unique_id=1346665314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.91, 0.4, 39.91)
+material_override = SubResource("StandardMaterial3D_efrfj")
+mesh = SubResource("BoxMesh_fndyb")
+
+[node name="Corner3" type="MeshInstance3D" parent="Site/Boundary" unique_id=871328893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.91, 0.4, -39.91)
+material_override = SubResource("StandardMaterial3D_efrfj")
+mesh = SubResource("BoxMesh_c2rmr")
+
+[node name="Corner4" type="MeshInstance3D" parent="Site/Boundary" unique_id=672764491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.91, 0.4, 39.91)
+material_override = SubResource("StandardMaterial3D_efrfj")
+mesh = SubResource("BoxMesh_gjtn1")
+
+[node name="LoadingZone" type="Node3D" parent="Site" unique_id=2049078593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 27)
+metadata/size_m = Vector2(14, 14)
+
+[node name="Paint_14x14" type="MeshInstance3D" parent="Site/LoadingZone" unique_id=1579454169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.006, 0)
+material_override = SubResource("StandardMaterial3D_8d5c5")
+mesh = SubResource("BoxMesh_u1c1r")
+
+[node name="Line" type="MeshInstance3D" parent="Site/LoadingZone" unique_id=536264216]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.025, -7)
+material_override = SubResource("StandardMaterial3D_idgkm")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_d3auv")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/LoadingZone" unique_id=2087581560]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 7, 0.025, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_noaea")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/LoadingZone" unique_id=1974892755]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.025, 7)
+material_override = SubResource("StandardMaterial3D_idgkm")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ikfis")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/LoadingZone" unique_id=713096173]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -7, 0.025, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_h5vk7")
+
+[node name="Label" type="Label3D" parent="Site/LoadingZone" unique_id=2019140088 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 7.5)
+pixel_size = 0.007
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "装载区  14 × 14 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.007
+
+[node name="Dimensions" type="Node3D" parent="Site/LoadingZone" unique_id=2031245252 groups=["scale_rulers"]]
+
+[node name="Measure" type="Node3D" parent="Site/LoadingZone/Dimensions" unique_id=1996440924]
+
+[node name="Line" type="MeshInstance3D" parent="Site/LoadingZone/Dimensions/Measure" unique_id=303990036]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.04, 6.8)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_si2a3")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/LoadingZone/Dimensions/Measure" unique_id=1891695873]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -7, 0.04, 6.8)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_gcgkn")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/LoadingZone/Dimensions/Measure" unique_id=668971771]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 7, 0.04, 6.8)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_f6mkx")
+
+[node name="Label" type="Label3D" parent="Site/LoadingZone/Dimensions/Measure" unique_id=2097840590 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24000001, 5.5)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "14.0 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Measure2" type="Node3D" parent="Site/LoadingZone/Dimensions" unique_id=177395779]
+
+[node name="Line" type="MeshInstance3D" parent="Site/LoadingZone/Dimensions/Measure2" unique_id=1625472079]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -6.8, 0.04, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_cral1")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/LoadingZone/Dimensions/Measure2" unique_id=1476688482]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -6.8, 0.04, -7)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_hte1g")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/LoadingZone/Dimensions/Measure2" unique_id=1105171483]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -6.8, 0.04, 7)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_sx1yn")
+
+[node name="Label" type="Label3D" parent="Site/LoadingZone/Dimensions/Measure2" unique_id=216999479 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.24000001, 0)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "14.0 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="SafetyMarker" type="MeshInstance3D" parent="Site/LoadingZone" unique_id=1856366046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3, 0.018, 6.3)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("CylinderMesh_r525f")
+
+[node name="Label2" type="Label3D" parent="Site/LoadingZone" unique_id=851840516 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.2, 6.3)
+pixel_size = 0.003
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "安全点"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.003
+
+[node name="UnloadingZone" type="Node3D" parent="Site" unique_id=1852764809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, -27)
+metadata/size_m = Vector2(14, 14)
+
+[node name="Paint_14x14" type="MeshInstance3D" parent="Site/UnloadingZone" unique_id=993345313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.006, 0)
+material_override = SubResource("StandardMaterial3D_drprl")
+mesh = SubResource("BoxMesh_s3of5")
+
+[node name="Line" type="MeshInstance3D" parent="Site/UnloadingZone" unique_id=1553714203]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.025, -7)
+material_override = SubResource("StandardMaterial3D_idgkm")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ynoew")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/UnloadingZone" unique_id=558472445]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 7, 0.025, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ktx07")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/UnloadingZone" unique_id=2138874979]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.025, 7)
+material_override = SubResource("StandardMaterial3D_idgkm")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_mfevr")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/UnloadingZone" unique_id=1701215090]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -7, 0.025, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_3qejb")
+
+[node name="Label" type="Label3D" parent="Site/UnloadingZone" unique_id=1878877286 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 7.5)
+pixel_size = 0.007
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "卸货区  14 × 14 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.007
+
+[node name="Dimensions" type="Node3D" parent="Site/UnloadingZone" unique_id=2125624354 groups=["scale_rulers"]]
+
+[node name="Measure" type="Node3D" parent="Site/UnloadingZone/Dimensions" unique_id=1073574461]
+
+[node name="Line" type="MeshInstance3D" parent="Site/UnloadingZone/Dimensions/Measure" unique_id=713416506]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.04, 6.8)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ifry7")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/UnloadingZone/Dimensions/Measure" unique_id=1433144968]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -7, 0.04, 6.8)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_tql6y")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/UnloadingZone/Dimensions/Measure" unique_id=1263643814]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 7, 0.04, 6.8)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_tut76")
+
+[node name="Label" type="Label3D" parent="Site/UnloadingZone/Dimensions/Measure" unique_id=1445570439 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24000001, 5.5)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "14.0 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Measure2" type="Node3D" parent="Site/UnloadingZone/Dimensions" unique_id=868230768]
+
+[node name="Line" type="MeshInstance3D" parent="Site/UnloadingZone/Dimensions/Measure2" unique_id=155877665]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -6.8, 0.04, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_j0l84")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/UnloadingZone/Dimensions/Measure2" unique_id=1912577478]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -6.8, 0.04, -7)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_isj8u")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/UnloadingZone/Dimensions/Measure2" unique_id=1600151893]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -6.8, 0.04, 7)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_y87fp")
+
+[node name="Label" type="Label3D" parent="Site/UnloadingZone/Dimensions/Measure2" unique_id=953152367 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.24000001, 0)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "14.0 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="SafetyMarker" type="MeshInstance3D" parent="Site/UnloadingZone" unique_id=1025570086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3, 0.018, 6.3)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("CylinderMesh_rifoq")
+
+[node name="Label2" type="Label3D" parent="Site/UnloadingZone" unique_id=573800131 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.2, 6.3)
+pixel_size = 0.003
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "安全点"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.003
+
+[node name="Route" type="Node3D" parent="Site" unique_id=902673288]
+
+[node name="Straight_30x12" type="MeshInstance3D" parent="Site/Route" unique_id=96840041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.006, 0)
+material_override = SubResource("StandardMaterial3D_bo4w1")
+mesh = SubResource("BoxMesh_264f4")
+
+[node name="RightTurn_R20" type="Node3D" parent="Site/Route" unique_id=887002186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 20)
+metadata/center_radius_m = 20.0
+metadata/width_m = 12.0
+
+[node name="Line" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=1804542083]
+transform = Transform3D(0.9993977, 0.024542088, 0.024534697, -0.024542088, 0, 0.99969876, 0.024534697, -0.99969876, 0.00060230494, -19.987953, 0.025, -0.49067676)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_l7m5y")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=175519194]
+transform = Transform3D(0.985016, 0.122409314, 0.121488765, -0.122409314, 0, 0.9924797, 0.121488765, -0.9924797, 0.014984012, -19.843613, 0.025, -2.4474761)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_5m2m6")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=2083928175]
+transform = Transform3D(0.9519948, 0.21910089, 0.21377724, -0.21910089, 0, 0.9757022, 0.21377724, -0.9757022, 0.048005164, -19.508165, 0.025, -4.380705)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_374py")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=1112707005]
+transform = Transform3D(0.90160346, 0.31368226, 0.2978501, -0.31368226, -1.1920929e-07, 0.94952804, 0.2978501, -0.94952804, 0.09839648, -18.984844, 0.025, -6.271745)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_fdb5a")
+
+[node name="Line5" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=1632364543]
+transform = Transform3D(0.83577985, 0.4052409, 0.37047523, -0.4052409, 0, 0.91421, 0.37047523, -0.91421, 0.1642201, -18.278688, 0.025, -8.102385)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_3hpfn")
+
+[node name="Line6" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=499286732]
+transform = Transform3D(0.7570505, 0.4928991, 0.4288648, -0.4928991, 0, 0.87008643, 0.4288648, -0.87008643, 0.24294955, -17.3965, 0.025, -9.854995)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_acu4t")
+
+[node name="Line7" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=1487906455]
+transform = Transform3D(0.6684442, 0.5758088, 0.4707723, -0.5758088, 0, 0.81758434, 0.4707723, -0.81758434, 0.33155578, -16.346771, 0.025, -11.512695)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_5xapa")
+
+[node name="Line8" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=1185979545]
+transform = Transform3D(0.5733654, 0.65317273, 0.49458823, -0.65317273, 0, 0.75720894, 0.49458823, -0.75720894, 0.4266346, -15.139616, 0.025, -13.059523)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_vcl02")
+
+[node name="Line9" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=1183222852]
+transform = Transform3D(0.4754659, 0.7242473, 0.49939772, -0.7242473, 0, 0.6895404, 0.49939772, -0.6895404, 0.5245341, -13.786657, 0.025, -14.480579)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_kyubj")
+
+[node name="Line10" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=1885686569]
+transform = Transform3D(0.37850976, 0.7883465, 0.4850156, -0.7883465, 0, 0.6152315, 0.4850156, -0.6152315, 0.62149024, -12.300926, 0.025, -15.762179)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ooho4")
+
+[node name="Line11" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=1945182656]
+transform = Transform3D(0.2862218, 0.84485394, 0.45199433, -0.84485394, 0, 0.534997, 0.45199433, -0.534997, 0.7137782, -10.69673, 0.025, -16.891983)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_77t28")
+
+[node name="Line12" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=902476897]
+transform = Transform3D(0.20215023, 0.89322436, 0.4016037, -0.89322436, 0, 0.44961122, 0.4016037, -0.44961122, 0.7978498, -8.989518, 0.025, -17.859106)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_tppq1")
+
+[node name="Line13" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=1299717417]
+transform = Transform3D(0.12952441, 0.9329928, 0.33577955, -0.9329928, -1.1920929e-07, 0.35989508, 0.33577955, -0.35989508, 0.87047553, -7.195733, 0.025, -18.654236)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_w1cq4")
+
+[node name="Line14" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=588024799]
+transform = Transform3D(0.07113558, 0.9637761, 0.25705117, -0.9637761, 0, 0.26671255, 0.25705117, -0.26671255, 0.9288644, -5.3326483, 0.025, -19.269716)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_6p6qr")
+
+[node name="Line15" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=2086760500]
+transform = Transform3D(0.02922827, 0.9852775, 0.168446, -0.9852775, -1.1920929e-07, 0.170963, 0.168446, -0.170963, 0.9707717, -3.418208, 0.025, -19.69962)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ms286")
+
+[node name="Line16" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=2024780046]
+transform = Transform3D(0.005411625, 0.9972906, 0.07336478, -0.9972906, 0, 0.073564105, 0.07336478, -0.073564105, 0.9945883, -1.4708482, 0.025, -19.9398)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_s4bhk")
+
+[node name="RoadSurface" type="MeshInstance3D" parent="Site/Route/RightTurn_R20" unique_id=1046574070]
+material_override = SubResource("StandardMaterial3D_bo4w1")
+mesh = SubResource("ArrayMesh_oxdsd")
+
+[node name="LeftTurn_R20" type="Node3D" parent="Site/Route" unique_id=865648890]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -20)
+metadata/center_radius_m = 20.0
+metadata/width_m = 12.0
+
+[node name="Line" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=1968079161]
+transform = Transform3D(0.00060230494, 0.99969876, 0.024534697, -0.99969876, 0, 0.024542088, 0.024534697, -0.024542088, 0.9993977, 0.49067676, 0.025, 19.987953)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_3d2n6")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=791062371]
+transform = Transform3D(0.014984012, 0.9924797, 0.121488765, -0.9924797, 0, 0.122409314, 0.121488765, -0.122409314, 0.985016, 2.4474761, 0.025, 19.843613)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_cf61g")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=1912212873]
+transform = Transform3D(0.048005164, 0.9757022, 0.21377724, -0.9757022, 0, 0.21910089, 0.21377724, -0.21910089, 0.9519948, 4.380705, 0.025, 19.508165)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_gpr0c")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=1567786733]
+transform = Transform3D(0.09839648, 0.94952804, 0.2978501, -0.94952804, -1.1920929e-07, 0.31368226, 0.2978501, -0.31368226, 0.90160346, 6.271745, 0.025, 18.984844)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_opnmq")
+
+[node name="Line5" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=74600502]
+transform = Transform3D(0.1642201, 0.91421, 0.37047523, -0.91421, 0, 0.4052409, 0.37047523, -0.4052409, 0.83577985, 8.102385, 0.025, 18.278688)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_jo5pf")
+
+[node name="Line6" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=678291305]
+transform = Transform3D(0.24294955, 0.87008643, 0.4288648, -0.87008643, 0, 0.4928991, 0.4288648, -0.4928991, 0.7570505, 9.854995, 0.025, 17.3965)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_0033i")
+
+[node name="Line7" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=1067299018]
+transform = Transform3D(0.33155578, 0.81758434, 0.4707723, -0.81758434, 0, 0.5758088, 0.4707723, -0.5758088, 0.6684442, 11.512695, 0.025, 16.346771)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_sskx2")
+
+[node name="Line8" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=277212710]
+transform = Transform3D(0.4266346, 0.75720894, 0.49458823, -0.75720894, 0, 0.65317273, 0.49458823, -0.65317273, 0.5733654, 13.059523, 0.025, 15.139616)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_tp4ij")
+
+[node name="Line9" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=2067835523]
+transform = Transform3D(0.5245341, 0.6895404, 0.49939772, -0.6895404, 0, 0.7242473, 0.49939772, -0.7242473, 0.4754659, 14.480579, 0.025, 13.786657)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ay2g6")
+
+[node name="Line10" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=712982109]
+transform = Transform3D(0.62149024, 0.6152315, 0.4850156, -0.6152315, 0, 0.7883465, 0.4850156, -0.7883465, 0.37850976, 15.762179, 0.025, 12.300926)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_7lqb7")
+
+[node name="Line11" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=1142695744]
+transform = Transform3D(0.7137782, 0.534997, 0.4519943, -0.534997, 0, 0.84485394, 0.4519943, -0.84485394, 0.2862218, 16.891983, 0.025, 10.69673)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_eokdq")
+
+[node name="Line12" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=1246815281]
+transform = Transform3D(0.7978498, 0.44961122, 0.4016037, -0.44961122, 0, 0.89322436, 0.4016037, -0.89322436, 0.20215023, 17.859106, 0.025, 8.989518)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_70typ")
+
+[node name="Line13" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=1445950637]
+transform = Transform3D(0.87047553, 0.35989508, 0.33577955, -0.35989508, -1.1920929e-07, 0.9329928, 0.33577955, -0.9329928, 0.12952441, 18.654236, 0.025, 7.195733)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_7ag0d")
+
+[node name="Line14" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=1513534977]
+transform = Transform3D(0.9288644, 0.26671255, 0.25705117, -0.26671255, 0, 0.9637761, 0.25705117, -0.9637761, 0.07113558, 19.269716, 0.025, 5.3326483)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_d2u5l")
+
+[node name="Line15" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=144355378]
+transform = Transform3D(0.9707717, 0.170963, 0.168446, -0.170963, -1.1920929e-07, 0.9852775, 0.168446, -0.9852775, 0.02922827, 19.69962, 0.025, 3.418208)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_by74h")
+
+[node name="Line16" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=540783703]
+transform = Transform3D(0.9945883, 0.073564105, 0.07336478, -0.073564105, 0, 0.9972906, 0.07336478, -0.9972906, 0.005411625, 19.9398, 0.025, 1.4708482)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_bcpek")
+
+[node name="RoadSurface" type="MeshInstance3D" parent="Site/Route/LeftTurn_R20" unique_id=1575012861]
+material_override = SubResource("StandardMaterial3D_bo4w1")
+mesh = SubResource("ArrayMesh_6voe3")
+
+[node name="CenterDash" type="MeshInstance3D" parent="Site/Route" unique_id=1199887895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.02, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("BoxMesh_dolex")
+
+[node name="CenterDash2" type="MeshInstance3D" parent="Site/Route" unique_id=1806171106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.02, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("BoxMesh_wa8xf")
+
+[node name="CenterDash3" type="MeshInstance3D" parent="Site/Route" unique_id=186288593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.02, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("BoxMesh_mlmhm")
+
+[node name="CenterDash4" type="MeshInstance3D" parent="Site/Route" unique_id=2022728391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.02, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("BoxMesh_qpq1a")
+
+[node name="CenterDash5" type="MeshInstance3D" parent="Site/Route" unique_id=532810640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.02, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("BoxMesh_wi50h")
+
+[node name="CenterDash6" type="MeshInstance3D" parent="Site/Route" unique_id=623729256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.02, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("BoxMesh_wbxja")
+
+[node name="CenterDash7" type="MeshInstance3D" parent="Site/Route" unique_id=1602663072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.02, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("BoxMesh_xdj8i")
+
+[node name="CenterDash8" type="MeshInstance3D" parent="Site/Route" unique_id=1578338126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.02, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("BoxMesh_y5yrp")
+
+[node name="CenterDash9" type="MeshInstance3D" parent="Site/Route" unique_id=978935303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.02, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("BoxMesh_5273l")
+
+[node name="CenterDash10" type="MeshInstance3D" parent="Site/Route" unique_id=1480961931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.02, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("BoxMesh_l6n48")
+
+[node name="EdgeLine" type="MeshInstance3D" parent="Site/Route" unique_id=1415153955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, -5.92)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("BoxMesh_biyo7")
+
+[node name="EdgeLine2" type="MeshInstance3D" parent="Site/Route" unique_id=1621163339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 5.92)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("BoxMesh_swi5i")
+
+[node name="Bump_0_12m" type="CSGPolygon3D" parent="Site/Route" unique_id=166877990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+use_collision = true
+polygon = PackedVector2Array(-1.2, 0, -0.3, 0.12, 0.3, 0.12, 1.2, 0, 1.2, -0.02, -1.2, -0.02)
+depth = 12.0
+material = SubResource("StandardMaterial3D_hetmy")
+metadata/rise_m = 0.12
+
+[node name="Label" type="Label3D" parent="Site/Route" unique_id=844518368 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -9)
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "凸起 +0.12 m / 构造长 2.4 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.005
+
+[node name="Dimensions" type="Node3D" parent="Site/Route" unique_id=817761285 groups=["scale_rulers"]]
+
+[node name="Measure" type="Node3D" parent="Site/Route/Dimensions" unique_id=1088606257]
+
+[node name="Line" type="MeshInstance3D" parent="Site/Route/Dimensions/Measure" unique_id=1653485389]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.04, 7)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_xa42r")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Route/Dimensions/Measure" unique_id=653271654]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -15, 0.04, 7)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_3icw6")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Route/Dimensions/Measure" unique_id=1488865022]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 15, 0.04, 7)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_w5kpm")
+
+[node name="Label" type="Label3D" parent="Site/Route/Dimensions/Measure" unique_id=37559738 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44, 7)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "直线段 30.0 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Measure2" type="Node3D" parent="Site/Route/Dimensions" unique_id=1197944292]
+
+[node name="Line" type="MeshInstance3D" parent="Site/Route/Dimensions/Measure2" unique_id=535848982]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 9, 0.04, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_7gip4")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Route/Dimensions/Measure2" unique_id=431003637]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 9, 0.04, -6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_4x6bj")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Route/Dimensions/Measure2" unique_id=272574254]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 9, 0.04, 6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_o1smk")
+
+[node name="Label" type="Label3D" parent="Site/Route/Dimensions/Measure2" unique_id=731497413 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.29, 0)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "总宽 12.0 m / 单道 6.0 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="VehicleFootprint" type="Node3D" parent="Site/Route" unique_id=1494188220]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8, 0.04, -3)
+metadata/lane = -1
+
+[node name="Line" type="MeshInstance3D" parent="Site/Route/VehicleFootprint" unique_id=696905639]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, -4.4)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_8rd5h")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Route/VehicleFootprint" unique_id=349262339]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_iv2ua")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Route/VehicleFootprint" unique_id=811096075]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 4.4)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_l2kxf")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/Route/VehicleFootprint" unique_id=2020895690]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_nmo7q")
+
+[node name="VehicleFootprint2" type="Node3D" parent="Site/Route" unique_id=234803097]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8, 0.04, 3)
+metadata/lane = 1
+
+[node name="Line" type="MeshInstance3D" parent="Site/Route/VehicleFootprint2" unique_id=1578614019]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, -4.4)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_yw6hu")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Route/VehicleFootprint2" unique_id=1445548020]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_iwr2f")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Route/VehicleFootprint2" unique_id=745325563]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 4.4)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_85wj6")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/Route/VehicleFootprint2" unique_id=1114324353]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_a45uj")
+
+[node name="Label2" type="Label3D" parent="Site/Route" unique_id=599694309 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -7.2)
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "车身 8.8 × 4.3 m / 单侧余宽 0.85 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.005
+
+[node name="TurnFootprint" type="Node3D" parent="Site/Route" unique_id=993117876]
+transform = Transform3D(0.9238795, 0, -0.38268346, 0, 1, 0, 0.38268346, 0, 0.9238795, -30.705952, 0.05, 13.494382)
+metadata/turn_center = Vector3(-15, 0, 20)
+metadata/lane_radius_m = 17.0
+
+[node name="Line" type="MeshInstance3D" parent="Site/Route/TurnFootprint" unique_id=1639439030]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, -4.4)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_52udj")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Route/TurnFootprint" unique_id=172754254]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_2li0h")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Route/TurnFootprint" unique_id=1702846721]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 4.4)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_1swub")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/Route/TurnFootprint" unique_id=1011363359]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_waks1")
+
+[node name="TurnFootprint2" type="Node3D" parent="Site/Route" unique_id=1151063120]
+transform = Transform3D(0.38268343, 0, -0.9238795, 0, 1, 0, 0.9238795, 0, 0.38268343, -21.50562, 0.05, 4.2940483)
+metadata/turn_center = Vector3(-15, 0, 20)
+metadata/lane_radius_m = 17.0
+
+[node name="Line" type="MeshInstance3D" parent="Site/Route/TurnFootprint2" unique_id=644955205]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, -4.4)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_vb5e7")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Route/TurnFootprint2" unique_id=742566283]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_7kxxy")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Route/TurnFootprint2" unique_id=1180188629]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 4.4)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_j8t3a")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/Route/TurnFootprint2" unique_id=1277012828]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_6ut07")
+
+[node name="TurnFootprint3" type="Node3D" parent="Site/Route" unique_id=1959709514]
+transform = Transform3D(0.9238795, 0, -0.38268346, 0, 1, 0, 0.38268346, 0, 0.9238795, -36.24923, 0.05, 11.198281)
+metadata/turn_center = Vector3(-15, 0, 20)
+metadata/lane_radius_m = 23.0
+
+[node name="Line" type="MeshInstance3D" parent="Site/Route/TurnFootprint3" unique_id=525194869]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, -4.4)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_gx3lf")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Route/TurnFootprint3" unique_id=899060270]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_rjsku")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Route/TurnFootprint3" unique_id=533930529]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 4.4)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_cwk6r")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/Route/TurnFootprint3" unique_id=633582713]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_g58r7")
+
+[node name="TurnFootprint4" type="Node3D" parent="Site/Route" unique_id=1564260325]
+transform = Transform3D(0.38268343, 0, -0.9238795, 0, 1, 0, 0.9238795, 0, 0.38268343, -23.80172, 0.05, -1.2492294)
+metadata/turn_center = Vector3(-15, 0, 20)
+metadata/lane_radius_m = 23.0
+
+[node name="Line" type="MeshInstance3D" parent="Site/Route/TurnFootprint4" unique_id=1926741731]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, -4.4)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_mgxts")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Route/TurnFootprint4" unique_id=1618454546]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_4xjhc")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Route/TurnFootprint4" unique_id=256733208]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 4.4)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_26rp2")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/Route/TurnFootprint4" unique_id=327335221]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_trvvp")
+
+[node name="TurnFootprint5" type="Node3D" parent="Site/Route" unique_id=1356950167]
+transform = Transform3D(-0.9238795, 0, 0.3826835, 0, 1, 0, -0.3826835, 0, -0.9238795, 30.705952, 0.05, -13.494382)
+metadata/turn_center = Vector3(15, 0, -20)
+metadata/lane_radius_m = 17.0
+
+[node name="Line" type="MeshInstance3D" parent="Site/Route/TurnFootprint5" unique_id=1432009763]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, -4.4)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_8mroo")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Route/TurnFootprint5" unique_id=1977566272]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_0duyf")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Route/TurnFootprint5" unique_id=747826566]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 4.4)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_hsmr6")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/Route/TurnFootprint5" unique_id=551415935]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_0qjcb")
+
+[node name="TurnFootprint6" type="Node3D" parent="Site/Route" unique_id=970757007]
+transform = Transform3D(-0.3826834, 0, 0.92387956, 0, 1, 0, -0.92387956, 0, -0.3826834, 21.50562, 0.05, -4.2940483)
+metadata/turn_center = Vector3(15, 0, -20)
+metadata/lane_radius_m = 17.0
+
+[node name="Line" type="MeshInstance3D" parent="Site/Route/TurnFootprint6" unique_id=1684196482]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, -4.4)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_g8wh3")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Route/TurnFootprint6" unique_id=122614696]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_oxoga")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Route/TurnFootprint6" unique_id=263634740]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 4.4)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_xs2h0")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/Route/TurnFootprint6" unique_id=145224050]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_2tf1o")
+
+[node name="TurnFootprint7" type="Node3D" parent="Site/Route" unique_id=642506183]
+transform = Transform3D(-0.9238795, 0, 0.3826835, 0, 1, 0, -0.3826835, 0, -0.9238795, 36.24923, 0.05, -11.198281)
+metadata/turn_center = Vector3(15, 0, -20)
+metadata/lane_radius_m = 23.0
+
+[node name="Line" type="MeshInstance3D" parent="Site/Route/TurnFootprint7" unique_id=1290393671]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, -4.4)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_0n18d")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Route/TurnFootprint7" unique_id=1726441608]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ac40n")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Route/TurnFootprint7" unique_id=1176278263]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 4.4)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_f2vcd")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/Route/TurnFootprint7" unique_id=1952557487]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_vlrp0")
+
+[node name="TurnFootprint8" type="Node3D" parent="Site/Route" unique_id=1267128404]
+transform = Transform3D(-0.3826834, 0, 0.92387956, 0, 1, 0, -0.92387956, 0, -0.3826834, 23.80172, 0.05, 1.2492294)
+metadata/turn_center = Vector3(15, 0, -20)
+metadata/lane_radius_m = 23.0
+
+[node name="Line" type="MeshInstance3D" parent="Site/Route/TurnFootprint8" unique_id=571810303]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, -4.4)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_16xra")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Route/TurnFootprint8" unique_id=669092549]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_dfkwh")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Route/TurnFootprint8" unique_id=441747445]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 4.4)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_afwxr")
+
+[node name="Line4" type="MeshInstance3D" parent="Site/Route/TurnFootprint8" unique_id=797487548]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -2.15, 0, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_30akf")
+
+[node name="Label3" type="Label3D" parent="Site/Route" unique_id=2131992358 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.2, 19)
+pixel_size = 0.006
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "右弯 / 中线 R20 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.006
+
+[node name="Label4" type="Label3D" parent="Site/Route" unique_id=439288882 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.2, -19)
+pixel_size = 0.006
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "左弯 / 中线 R20 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.006
+
+[node name="Dimensions" type="Node3D" parent="Site" unique_id=329429270 groups=["scale_rulers"]]
+
+[node name="Measure" type="Node3D" parent="Site/Dimensions" unique_id=1686422129]
+
+[node name="Line" type="MeshInstance3D" parent="Site/Dimensions/Measure" unique_id=1429276082]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.08, 39)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_q4lod")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Dimensions/Measure" unique_id=1586881069]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -50, 0.08, 39)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_1lg7r")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Dimensions/Measure" unique_id=297931290]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 50, 0.08, 39)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_p4x04")
+
+[node name="Label" type="Label3D" parent="Site/Dimensions/Measure" unique_id=118673736 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48000002, 39)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "场地宽 100.0 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Measure2" type="Node3D" parent="Site/Dimensions" unique_id=358781782]
+
+[node name="Line" type="MeshInstance3D" parent="Site/Dimensions/Measure2" unique_id=1171268791]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 49, 0.08, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_3866s")
+
+[node name="Line2" type="MeshInstance3D" parent="Site/Dimensions/Measure2" unique_id=2085849203]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 49, 0.08, -40)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_olkrr")
+
+[node name="Line3" type="MeshInstance3D" parent="Site/Dimensions/Measure2" unique_id=624929195]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 49, 0.08, 40)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_h005p")
+
+[node name="Label" type="Label3D" parent="Site/Dimensions/Measure2" unique_id=1617543632 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47, 0.48000002, 0)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "场地深 80.0 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Label" type="Label3D" parent="Site" unique_id=129226691 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -37)
+pixel_size = 0.009
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "-Z  场景前向"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.009
+
+[node name="Line" type="MeshInstance3D" parent="Site" unique_id=1107618334]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0.05, -37.5)
+material_override = SubResource("StandardMaterial3D_efrfj")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_3gks6")
+
+[node name="Line2" type="MeshInstance3D" parent="Site" unique_id=1716459357]
+transform = Transform3D(0.6923066, -0.5547012, 0.46153897, 0.5547012, -1.1920929e-07, -0.83204967, 0.46153897, 0.83204967, 0.3076933, -0.2, 0.05, -38.7)
+material_override = SubResource("StandardMaterial3D_efrfj")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_oouer")
+
+[node name="Line3" type="MeshInstance3D" parent="Site" unique_id=1479780843]
+transform = Transform3D(0.6923066, 0.5547012, -0.46153897, -0.5547012, -1.1920929e-07, -0.83204967, -0.46153897, 0.83204967, 0.3076933, 0.2, 0.05, -38.7)
+material_override = SubResource("StandardMaterial3D_efrfj")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ok4mf")
+
+[node name="Label2" type="Label3D" parent="Site" unique_id=1668455654 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.2, -37)
+pixel_size = 0.007
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "+X"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.007
+
+[node name="Line4" type="MeshInstance3D" parent="Site" unique_id=899202432]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 3.5, 0.05, -38)
+material_override = SubResource("StandardMaterial3D_efrfj")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_0ondm")
+
+[node name="Truck" type="Node3D" parent="." unique_id=1684823707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 26.5)
+metadata/outer_size_m = Vector3(4.3, 3.5, 8.8)
+metadata/bed_inner_size_m = Vector2(4, 5.8)
+metadata/bed_clear_height_m = 2.8
+metadata/roof_thickness_conflict = true
+
+[node name="Geometry" type="Node3D" parent="Truck" unique_id=1933414559]
+
+[node name="Chassis" type="StaticBody3D" parent="Truck/Geometry" unique_id=91524672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/Chassis" unique_id=1284927313]
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("BoxMesh_ypej6")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/Chassis" unique_id=767319395]
+shape = SubResource("BoxShape3D_1bfux")
+
+[node name="Floor" type="StaticBody3D" parent="Truck/Geometry" unique_id=2020203264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/Floor" unique_id=122909651]
+material_override = SubResource("StandardMaterial3D_mtua6")
+mesh = SubResource("BoxMesh_mtedk")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/Floor" unique_id=59517754]
+shape = SubResource("BoxShape3D_awm4o")
+
+[node name="SideLeft" type="StaticBody3D" parent="Truck/Geometry" unique_id=501458937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.075, 2.1, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/SideLeft" unique_id=300113036]
+material_override = SubResource("StandardMaterial3D_3q845")
+mesh = SubResource("BoxMesh_hgfwx")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/SideLeft" unique_id=1427830981]
+shape = SubResource("BoxShape3D_xnddd")
+
+[node name="SideRight" type="StaticBody3D" parent="Truck/Geometry" unique_id=1398887464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.075, 2.1, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/SideRight" unique_id=416652646]
+material_override = SubResource("StandardMaterial3D_3q845")
+mesh = SubResource("BoxMesh_7g101")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/SideRight" unique_id=1685056285]
+shape = SubResource("BoxShape3D_qfc4r")
+
+[node name="FrontWall" type="StaticBody3D" parent="Truck/Geometry" unique_id=1044199812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, -4.35)
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/FrontWall" unique_id=1131059643]
+material_override = SubResource("StandardMaterial3D_3q845")
+mesh = SubResource("BoxMesh_bfoh0")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/FrontWall" unique_id=268243065]
+shape = SubResource("BoxShape3D_3y14w")
+
+[node name="PartitionPortal" type="Node3D" parent="Truck/Geometry" unique_id=161375211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -1.5500001)
+metadata/clear_opening_m = Vector2(0.8, 1.9)
+
+[node name="JambLeft" type="StaticBody3D" parent="Truck/Geometry/PartitionPortal" unique_id=1318451006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 1.4, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/PartitionPortal/JambLeft" unique_id=1928881051]
+material_override = SubResource("StandardMaterial3D_mtua6")
+mesh = SubResource("BoxMesh_4icrw")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/PartitionPortal/JambLeft" unique_id=775662273]
+shape = SubResource("BoxShape3D_hg77o")
+
+[node name="JambRight" type="StaticBody3D" parent="Truck/Geometry/PartitionPortal" unique_id=463357865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 1.4, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/PartitionPortal/JambRight" unique_id=817244956]
+material_override = SubResource("StandardMaterial3D_mtua6")
+mesh = SubResource("BoxMesh_vass1")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/PartitionPortal/JambRight" unique_id=534502584]
+shape = SubResource("BoxShape3D_wi32i")
+
+[node name="Header" type="StaticBody3D" parent="Truck/Geometry/PartitionPortal" unique_id=1996237925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/PartitionPortal/Header" unique_id=1329661606]
+material_override = SubResource("StandardMaterial3D_mtua6")
+mesh = SubResource("BoxMesh_kafva")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/PartitionPortal/Header" unique_id=1329069382]
+shape = SubResource("BoxShape3D_6dfy6")
+
+[node name="Door" type="StaticBody3D" parent="Truck/Geometry/PartitionPortal" unique_id=993071036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/PartitionPortal/Door" unique_id=1297161879]
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("BoxMesh_0hdr7")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/PartitionPortal/Door" unique_id=912698870]
+shape = SubResource("BoxShape3D_t2blu")
+
+[node name="RearPortal" type="Node3D" parent="Truck/Geometry" unique_id=1066416714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 4.35)
+metadata/clear_opening_m = Vector2(1.6, 2)
+
+[node name="JambLeft" type="StaticBody3D" parent="Truck/Geometry/RearPortal" unique_id=126778656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.475, 1.4, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/RearPortal/JambLeft" unique_id=1044026164]
+material_override = SubResource("StandardMaterial3D_3q845")
+mesh = SubResource("BoxMesh_ld18u")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/RearPortal/JambLeft" unique_id=432290882]
+shape = SubResource("BoxShape3D_6twyo")
+
+[node name="JambRight" type="StaticBody3D" parent="Truck/Geometry/RearPortal" unique_id=1210783018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.475, 1.4, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/RearPortal/JambRight" unique_id=2006444763]
+material_override = SubResource("StandardMaterial3D_3q845")
+mesh = SubResource("BoxMesh_csjjp")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/RearPortal/JambRight" unique_id=413713856]
+shape = SubResource("BoxShape3D_6nco4")
+
+[node name="Header" type="StaticBody3D" parent="Truck/Geometry/RearPortal" unique_id=1863844142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/RearPortal/Header" unique_id=1474412625]
+material_override = SubResource("StandardMaterial3D_3q845")
+mesh = SubResource("BoxMesh_ktbir")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/RearPortal/Header" unique_id=381107530]
+shape = SubResource("BoxShape3D_c0noj")
+
+[node name="Door" type="StaticBody3D" parent="Truck/Geometry/RearPortal" unique_id=1868954995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/RearPortal/Door" unique_id=738285171]
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("BoxMesh_iy3ct")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/RearPortal/Door" unique_id=522784622]
+shape = SubResource("BoxShape3D_4gk0p")
+
+[node name="RoofReference" type="StaticBody3D" parent="Truck/Geometry" unique_id=181487404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+metadata/reference_thickness_m = 0.0
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/RoofReference" unique_id=586309314]
+material_override = SubResource("StandardMaterial3D_mtua6")
+mesh = SubResource("PlaneMesh_hf2ta")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/RoofReference" unique_id=242380580]
+shape = SubResource("ConcavePolygonShape3D_3lsii")
+
+[node name="DrivingArea" type="MeshInstance3D" parent="Truck/Geometry" unique_id=282681071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.703, -3.2)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("BoxMesh_ly6rd")
+
+[node name="WheelFrontLeft" type="StaticBody3D" parent="Truck/Geometry" unique_id=1790441025]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.95, 0.35, -3.4)
+
+[node name="Tire" type="MeshInstance3D" parent="Truck/Geometry/WheelFrontLeft" unique_id=2082843557]
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("CylinderMesh_2py71")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/WheelFrontLeft" unique_id=1109012294]
+shape = SubResource("CylinderShape3D_3h7wb")
+
+[node name="WheelFrontRight" type="StaticBody3D" parent="Truck/Geometry" unique_id=538084155]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.95, 0.35, -3.4)
+
+[node name="Tire" type="MeshInstance3D" parent="Truck/Geometry/WheelFrontRight" unique_id=209924329]
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("CylinderMesh_nosyb")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/WheelFrontRight" unique_id=100158475]
+shape = SubResource("CylinderShape3D_rhbon")
+
+[node name="WheelRearLeft" type="StaticBody3D" parent="Truck/Geometry" unique_id=1426571871]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.95, 0.35, 2.4)
+
+[node name="Tire" type="MeshInstance3D" parent="Truck/Geometry/WheelRearLeft" unique_id=1211367782]
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("CylinderMesh_v46yv")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/WheelRearLeft" unique_id=529999021]
+shape = SubResource("CylinderShape3D_iuw30")
+
+[node name="WheelRearRight" type="StaticBody3D" parent="Truck/Geometry" unique_id=910863315]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.95, 0.35, 2.4)
+
+[node name="Tire" type="MeshInstance3D" parent="Truck/Geometry/WheelRearRight" unique_id=711535662]
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("CylinderMesh_u60nt")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/WheelRearRight" unique_id=1067074622]
+shape = SubResource("CylinderShape3D_5t2gp")
+
+[node name="AccessRamp" type="StaticBody3D" parent="Truck/Geometry" unique_id=1565067722]
+transform = Transform3D(1, 0, 0, 0, 0.9486833, -0.31622776, 0, 0.31622776, 0.9486833, 0, 0.31205267, 5.437351)
+
+[node name="Mesh" type="MeshInstance3D" parent="Truck/Geometry/AccessRamp" unique_id=1750988054]
+material_override = SubResource("StandardMaterial3D_mtua6")
+mesh = SubResource("BoxMesh_fs3mq")
+
+[node name="Collision" type="CollisionShape3D" parent="Truck/Geometry/AccessRamp" unique_id=1296210583]
+shape = SubResource("BoxShape3D_ywkmy")
+
+[node name="Dimensions" type="Node3D" parent="Truck" unique_id=676850430 groups=["scale_rulers"]]
+
+[node name="Measure" type="Node3D" parent="Truck/Dimensions" unique_id=1335626911]
+metadata/views = [1]
+
+[node name="Line" type="MeshInstance3D" parent="Truck/Dimensions/Measure" unique_id=1132747081]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.5500002, 3.9, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_6gb4q")
+
+[node name="Line2" type="MeshInstance3D" parent="Truck/Dimensions/Measure" unique_id=1404927152]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 2.5500002, 3.9, -4.4)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_7bqqo")
+
+[node name="Line3" type="MeshInstance3D" parent="Truck/Dimensions/Measure" unique_id=1718885093]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 2.5500002, 3.9, 4.4)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_3qcyc")
+
+[node name="Label" type="Label3D" parent="Truck/Dimensions/Measure" unique_id=845409973 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5500002, 4.06, 0)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "车长 8.80 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Measure2" type="Node3D" parent="Truck/Dimensions" unique_id=338529220]
+metadata/views = [2]
+metadata/width_study = true
+
+[node name="Line" type="MeshInstance3D" parent="Truck/Dimensions/Measure2" unique_id=299141298]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.05, 5.2000003)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_davvu")
+
+[node name="Line2" type="MeshInstance3D" parent="Truck/Dimensions/Measure2" unique_id=573739494]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -2.15, 0.05, 5.2000003)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_xygpn")
+
+[node name="Line3" type="MeshInstance3D" parent="Truck/Dimensions/Measure2" unique_id=1725267231]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.15, 0.05, 5.2000003)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_l0huk")
+
+[node name="Label" type="Label3D" parent="Truck/Dimensions/Measure2" unique_id=1741045154 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21, 5.2000003)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "车宽 4.30 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Measure3" type="Node3D" parent="Truck/Dimensions" unique_id=1520022560]
+metadata/views = [1]
+
+[node name="Line" type="MeshInstance3D" parent="Truck/Dimensions/Measure3" unique_id=292613457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45, 1.75, -4.9)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_se680")
+
+[node name="Line2" type="MeshInstance3D" parent="Truck/Dimensions/Measure3" unique_id=284299590]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 2.45, 0, -4.9)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_t8cud")
+
+[node name="Line3" type="MeshInstance3D" parent="Truck/Dimensions/Measure3" unique_id=862823749]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 2.45, 3.5, -4.9)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_e45l6")
+
+[node name="Label" type="Label3D" parent="Truck/Dimensions/Measure3" unique_id=1069324924 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8500001, 1.75, -4.9)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "车高 3.50 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Measure4" type="Node3D" parent="Truck/Dimensions" unique_id=1513405389]
+metadata/views = [3]
+
+[node name="Line" type="MeshInstance3D" parent="Truck/Dimensions/Measure4" unique_id=1743183805]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.5500002, 0.7, 1.4000001)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_8csx3")
+
+[node name="Line2" type="MeshInstance3D" parent="Truck/Dimensions/Measure4" unique_id=1056357553]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 2.5500002, 0.7, -1.5000001)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_1b3pk")
+
+[node name="Line3" type="MeshInstance3D" parent="Truck/Dimensions/Measure4" unique_id=2126030951]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 2.5500002, 0.7, 4.3)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_37s2f")
+
+[node name="Label" type="Label3D" parent="Truck/Dimensions/Measure4" unique_id=160874752 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.15, 0.85, 1.4000001)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "净长 5.80 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Measure5" type="Node3D" parent="Truck/Dimensions" unique_id=182823820]
+metadata/views = [2, 3]
+metadata/width_study = true
+
+[node name="Line" type="MeshInstance3D" parent="Truck/Dimensions/Measure5" unique_id=281000876]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 4, 4.8)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ryhbe")
+
+[node name="Line2" type="MeshInstance3D" parent="Truck/Dimensions/Measure5" unique_id=327416614]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -2, 4, 4.8)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_w1jyj")
+
+[node name="Line3" type="MeshInstance3D" parent="Truck/Dimensions/Measure5" unique_id=1396647319]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2, 4, 4.8)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_faofx")
+
+[node name="Label" type="Label3D" parent="Truck/Dimensions/Measure5" unique_id=38922949 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.16, 4.8)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "净宽 4.00 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Measure6" type="Node3D" parent="Truck/Dimensions" unique_id=1558058843]
+metadata/views = [2]
+
+[node name="Line" type="MeshInstance3D" parent="Truck/Dimensions/Measure6" unique_id=1621308910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5500002, 2.1, 4.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_bs2lp")
+
+[node name="Line2" type="MeshInstance3D" parent="Truck/Dimensions/Measure6" unique_id=1745417337]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, -2.5500002, 0.7, 4.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ubog0")
+
+[node name="Line3" type="MeshInstance3D" parent="Truck/Dimensions/Measure6" unique_id=108358801]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, -2.5500002, 3.5, 4.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_oljd8")
+
+[node name="Label" type="Label3D" parent="Truck/Dimensions/Measure6" unique_id=1303778730 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0500002, 2.1, 4.6)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "净高 2.80 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Measure7" type="Node3D" parent="Truck/Dimensions" unique_id=1798613595]
+metadata/views = [2]
+
+[node name="Line" type="MeshInstance3D" parent="Truck/Dimensions/Measure7" unique_id=883982960]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5500002, 0.35, 4.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_mr3t8")
+
+[node name="Line2" type="MeshInstance3D" parent="Truck/Dimensions/Measure7" unique_id=158434539]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 2.5500002, 0, 4.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_2segm")
+
+[node name="Line3" type="MeshInstance3D" parent="Truck/Dimensions/Measure7" unique_id=1193936847]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 2.5500002, 0.7, 4.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_oefkn")
+
+[node name="Label" type="Label3D" parent="Truck/Dimensions/Measure7" unique_id=901282410 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.15, 0.35, 4.6)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "地板 0.70 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Measure8" type="Node3D" parent="Truck/Dimensions" unique_id=1053461341]
+metadata/views = [3]
+
+[node name="Line" type="MeshInstance3D" parent="Truck/Dimensions/Measure8" unique_id=1506516491]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.72, -1.5500001)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_jy45v")
+
+[node name="Line2" type="MeshInstance3D" parent="Truck/Dimensions/Measure8" unique_id=1356021127]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.4, 0.72, -1.5500001)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_m8vsa")
+
+[node name="Line3" type="MeshInstance3D" parent="Truck/Dimensions/Measure8" unique_id=1450725813]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.4, 0.72, -1.5500001)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_5do3g")
+
+[node name="Label" type="Label3D" parent="Truck/Dimensions/Measure8" unique_id=360699575 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92, -2.0500002)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "隔断门 0.80 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Measure9" type="Node3D" parent="Truck/Dimensions" unique_id=355739340]
+metadata/views = [2]
+
+[node name="Line" type="MeshInstance3D" parent="Truck/Dimensions/Measure9" unique_id=461618652]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.72, 4.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_wdi1j")
+
+[node name="Line2" type="MeshInstance3D" parent="Truck/Dimensions/Measure9" unique_id=746581013]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.8, 0.72, 4.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_i2nmt")
+
+[node name="Line3" type="MeshInstance3D" parent="Truck/Dimensions/Measure9" unique_id=939367244]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.8, 0.72, 4.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_f7oyw")
+
+[node name="Label" type="Label3D" parent="Truck/Dimensions/Measure9" unique_id=841458030 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92, 4.6)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "后门 1.60 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Measure10" type="Node3D" parent="Truck/Dimensions" unique_id=1989425379]
+metadata/views = [2]
+
+[node name="Line" type="MeshInstance3D" parent="Truck/Dimensions/Measure10" unique_id=1066395839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 1.7, 4.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_kf3wq")
+
+[node name="Line2" type="MeshInstance3D" parent="Truck/Dimensions/Measure10" unique_id=1371852811]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, -0.9, 0.7, 4.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_y6krm")
+
+[node name="Line3" type="MeshInstance3D" parent="Truck/Dimensions/Measure10" unique_id=1633429124]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, -0.9, 2.7, 4.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_15vrv")
+
+[node name="Label" type="Label3D" parent="Truck/Dimensions/Measure10" unique_id=131199794 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 1.7, 4.6)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "后门净高 2.00 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Measure11" type="Node3D" parent="Truck/Dimensions" unique_id=1757148388]
+metadata/views = [3]
+
+[node name="Line" type="MeshInstance3D" parent="Truck/Dimensions/Measure11" unique_id=1914775808]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -2.5500002, 0.7, -3.2000003)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_uqkag")
+
+[node name="Line2" type="MeshInstance3D" parent="Truck/Dimensions/Measure11" unique_id=480996054]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -2.5500002, 0.7, -4.3)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_31cqp")
+
+[node name="Line3" type="MeshInstance3D" parent="Truck/Dimensions/Measure11" unique_id=1579530515]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -2.5500002, 0.7, -2.1000001)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_vm24u")
+
+[node name="Label" type="Label3D" parent="Truck/Dimensions/Measure11" unique_id=66151942 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9500003, 0.85, -3.2000003)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "驾驶区 2.20 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="BedFootprint" type="Node3D" parent="Truck/Dimensions" unique_id=1371917112]
+metadata/views = [0, 3]
+
+[node name="Line" type="MeshInstance3D" parent="Truck/Dimensions/BedFootprint" unique_id=199111404]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.71, -1.5000001)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_em7fi")
+
+[node name="Line2" type="MeshInstance3D" parent="Truck/Dimensions/BedFootprint" unique_id=514387663]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2, 0.71, 1.4000001)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_iin4h")
+
+[node name="Line3" type="MeshInstance3D" parent="Truck/Dimensions/BedFootprint" unique_id=1654959940]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.71, 4.3)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_o6cn6")
+
+[node name="Line4" type="MeshInstance3D" parent="Truck/Dimensions/BedFootprint" unique_id=2111407745]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -2, 0.71, 1.4000001)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_fgbwp")
+
+[node name="FivePersonWidth" type="Node3D" parent="Truck/Dimensions" unique_id=661268018]
+metadata/views = [0, 2, 3]
+metadata/width_study = true
+
+[node name="Line" type="MeshInstance3D" parent="Truck/Dimensions/FivePersonWidth" unique_id=412231783]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.72, 2.3)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_hug3a")
+
+[node name="Line2" type="MeshInstance3D" parent="Truck/Dimensions/FivePersonWidth" unique_id=349681023]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -2, 0.72, 2.3)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_nuai3")
+
+[node name="Line3" type="MeshInstance3D" parent="Truck/Dimensions/FivePersonWidth" unique_id=186741522]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2, 0.72, 2.3)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_erskj")
+
+[node name="Label" type="Label3D" parent="Truck/Dimensions/FivePersonWidth" unique_id=1681047447 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42000002, 2.55)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "5 × 0.80 = 4.00 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Label" type="Label3D" parent="Truck" unique_id=237623667 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -5.1)
+pixel_size = 0.0035
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "车头 -Z"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Dimensions" type="Node3D" parent="." unique_id=85124149 groups=["scale_rulers"]]
+
+[node name="Measure" type="Node3D" parent="Dimensions" unique_id=578641154]
+
+[node name="Line" type="MeshInstance3D" parent="Dimensions/Measure" unique_id=434264867]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -37.75, 0.03, 32.45)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_7tkcp")
+
+[node name="Line2" type="MeshInstance3D" parent="Dimensions/Measure" unique_id=481901896]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -37.75, 0.03, 30.9)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_uiuaa")
+
+[node name="Line3" type="MeshInstance3D" parent="Dimensions/Measure" unique_id=882479477]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -37.75, 0.03, 34)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_l8wrr")
+
+[node name="Label" type="Label3D" parent="Dimensions/Measure" unique_id=1400843097 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.05, 0.23, 32.45)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "标线内车后余深 3.10 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="PersonA" type="StaticBody3D" parent="." unique_id=565221993]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -31.95, 0, 23.3)
+metadata/height_m = 1.8
+metadata/eye_height_m = 1.62
+metadata/visual_width_m = 0.8
+metadata/collision_diameter_m = 0.6
+metadata/head_diameter_m = 0.6
+
+[node name="Body" type="MeshInstance3D" parent="PersonA" unique_id=1402440092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("CapsuleMesh_8ba2o")
+
+[node name="Head" type="MeshInstance3D" parent="PersonA" unique_id=1551581647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_oeevf")
+
+[node name="ArmLeft" type="MeshInstance3D" parent="PersonA" unique_id=96427649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.92, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("CapsuleMesh_d8wyr")
+
+[node name="HandLeft" type="MeshInstance3D" parent="PersonA" unique_id=465271271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.67, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_4jlto")
+
+[node name="LegLeft" type="MeshInstance3D" parent="PersonA" unique_id=365426832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0.34, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("CapsuleMesh_r7f1o")
+
+[node name="FootLeft" type="MeshInstance3D" parent="PersonA" unique_id=1682536017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0.08, -0.06)
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("BoxMesh_tn42y")
+
+[node name="ArmRight" type="MeshInstance3D" parent="PersonA" unique_id=754887669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.92, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("CapsuleMesh_kkf6e")
+
+[node name="HandRight" type="MeshInstance3D" parent="PersonA" unique_id=1982151863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.67, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_2e0ht")
+
+[node name="LegRight" type="MeshInstance3D" parent="PersonA" unique_id=1288279940]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0.34, 0)
+material_override = SubResource("StandardMaterial3D_hetmy")
+mesh = SubResource("CapsuleMesh_5qvdq")
+
+[node name="FootRight" type="MeshInstance3D" parent="PersonA" unique_id=1226682366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0.08, -0.06)
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("BoxMesh_htput")
+
+[node name="FrontMarker" type="MeshInstance3D" parent="PersonA" unique_id=790102139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, -0.22)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("BoxMesh_yqj4d")
+
+[node name="Collision" type="CollisionShape3D" parent="PersonA" unique_id=486936041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_00qfq")
+
+[node name="EyePoint" type="Marker3D" parent="PersonA" unique_id=77521657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62, 0)
+
+[node name="Dimensions" type="Node3D" parent="PersonA" unique_id=143817795 groups=["scale_rulers"]]
+
+[node name="HeightMeasure" type="Node3D" parent="PersonA/Dimensions" unique_id=1464316587]
+
+[node name="Line" type="MeshInstance3D" parent="PersonA/Dimensions/HeightMeasure" unique_id=820186550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_kw3im")
+
+[node name="Line2" type="MeshInstance3D" parent="PersonA/Dimensions/HeightMeasure" unique_id=195623999]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0.6, 0, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_7oxs6")
+
+[node name="Line3" type="MeshInstance3D" parent="PersonA/Dimensions/HeightMeasure" unique_id=1542885355]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0.6, 1.8, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_wxjkn")
+
+[node name="Label" type="Label3D" parent="PersonA/Dimensions/HeightMeasure" unique_id=1247062493 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.9, 0)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "1.80 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="VisualWidthMeasure" type="Node3D" parent="PersonA/Dimensions" unique_id=586053212]
+
+[node name="Line" type="MeshInstance3D" parent="PersonA/Dimensions/VisualWidthMeasure" unique_id=1984818200]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.03, 0.5)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_7worm")
+
+[node name="Line2" type="MeshInstance3D" parent="PersonA/Dimensions/VisualWidthMeasure" unique_id=2049130816]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.4, 0.03, 0.5)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_sn8nf")
+
+[node name="Line3" type="MeshInstance3D" parent="PersonA/Dimensions/VisualWidthMeasure" unique_id=217661522]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.4, 0.03, 0.5)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_2gyen")
+
+[node name="Label" type="Label3D" parent="PersonA/Dimensions/VisualWidthMeasure" unique_id=485433801 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22, 0.75)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "视觉宽 0.80 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="CollisionWidthMeasure" type="Node3D" parent="PersonA/Dimensions" unique_id=352380614]
+
+[node name="Line" type="MeshInstance3D" parent="PersonA/Dimensions/CollisionWidthMeasure" unique_id=552096423]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.03, -0.5)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_oy6ay")
+
+[node name="Line2" type="MeshInstance3D" parent="PersonA/Dimensions/CollisionWidthMeasure" unique_id=1869348399]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.3, 0.03, -0.5)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_udb43")
+
+[node name="Line3" type="MeshInstance3D" parent="PersonA/Dimensions/CollisionWidthMeasure" unique_id=227891704]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.3, 0.03, -0.5)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_soy5x")
+
+[node name="Label" type="Label3D" parent="PersonA/Dimensions/CollisionWidthMeasure" unique_id=997252856 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.52000004, -0.75)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "碰撞 Ø0.60 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="EyeMeasure" type="Node3D" parent="PersonA/Dimensions" unique_id=1932865718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62, 0)
+
+[node name="Line" type="MeshInstance3D" parent="PersonA/Dimensions/EyeMeasure" unique_id=51582059]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, -0.2)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_rnx6y")
+
+[node name="Label" type="Label3D" parent="PersonA/Dimensions/EyeMeasure" unique_id=2019897410 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65, 0, 0)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "眼高 1.62 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="PersonLabel" type="Label3D" parent="PersonA" unique_id=1066468079 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+pixel_size = 0.0035
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "A"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="PersonB" type="StaticBody3D" parent="." unique_id=1268777612]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -35, 0.7, 23.1)
+metadata/height_m = 1.8
+metadata/eye_height_m = 1.62
+metadata/visual_width_m = 0.8
+metadata/collision_diameter_m = 0.6
+metadata/head_diameter_m = 0.6
+
+[node name="Body" type="MeshInstance3D" parent="PersonB" unique_id=631444443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+mesh = SubResource("CapsuleMesh_ybwcw")
+
+[node name="Head" type="MeshInstance3D" parent="PersonB" unique_id=770555484]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_32atx")
+
+[node name="ArmLeft" type="MeshInstance3D" parent="PersonB" unique_id=2011464147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.92, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+mesh = SubResource("CapsuleMesh_qqwid")
+
+[node name="HandLeft" type="MeshInstance3D" parent="PersonB" unique_id=245040334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.67, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_iww6b")
+
+[node name="LegLeft" type="MeshInstance3D" parent="PersonB" unique_id=711874840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0.34, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+mesh = SubResource("CapsuleMesh_qvrr2")
+
+[node name="FootLeft" type="MeshInstance3D" parent="PersonB" unique_id=1091536194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0.08, -0.06)
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("BoxMesh_krj7e")
+
+[node name="ArmRight" type="MeshInstance3D" parent="PersonB" unique_id=1076332931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.92, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+mesh = SubResource("CapsuleMesh_k8lsx")
+
+[node name="HandRight" type="MeshInstance3D" parent="PersonB" unique_id=2078962262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.67, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_w242i")
+
+[node name="LegRight" type="MeshInstance3D" parent="PersonB" unique_id=1483880495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0.34, 0)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+mesh = SubResource("CapsuleMesh_rej0c")
+
+[node name="FootRight" type="MeshInstance3D" parent="PersonB" unique_id=865566070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0.08, -0.06)
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("BoxMesh_cwf67")
+
+[node name="FrontMarker" type="MeshInstance3D" parent="PersonB" unique_id=979863158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, -0.22)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("BoxMesh_cx66v")
+
+[node name="Collision" type="CollisionShape3D" parent="PersonB" unique_id=1418294060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_s1d7w")
+
+[node name="EyePoint" type="Marker3D" parent="PersonB" unique_id=1627974067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62, 0)
+
+[node name="Dimensions" type="Node3D" parent="PersonB" unique_id=1933850534 groups=["scale_rulers"]]
+
+[node name="HeightMeasure" type="Node3D" parent="PersonB/Dimensions" unique_id=1475379167]
+
+[node name="Line" type="MeshInstance3D" parent="PersonB/Dimensions/HeightMeasure" unique_id=673112455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -0.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_fk0ew")
+
+[node name="Line2" type="MeshInstance3D" parent="PersonB/Dimensions/HeightMeasure" unique_id=1300349894]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, -0.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_w7vaf")
+
+[node name="Line3" type="MeshInstance3D" parent="PersonB/Dimensions/HeightMeasure" unique_id=1877595922]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 1.8, -0.6)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_jc8w7")
+
+[node name="Label" type="Label3D" parent="PersonB/Dimensions/HeightMeasure" unique_id=1161936141 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9499999, -1.1)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "1.80 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="EyeMeasure" type="Node3D" parent="PersonB/Dimensions" unique_id=1056315996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62, 0)
+
+[node name="Line" type="MeshInstance3D" parent="PersonB/Dimensions/EyeMeasure" unique_id=1434574897]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, -0.2)
+material_override = SubResource("StandardMaterial3D_l0fkd")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_0fobw")
+
+[node name="Label" type="Label3D" parent="PersonB/Dimensions/EyeMeasure" unique_id=2103043691 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
+pixel_size = 0.0035
+billboard = 1
+no_depth_test = true
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "眼高 1.62 m"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="PersonLabel" type="Label3D" parent="PersonB" unique_id=1467028606 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+pixel_size = 0.0035
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "B"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="PersonC" type="StaticBody3D" parent="." unique_id=1082309522]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -36, 0.7, 28.5)
+metadata/height_m = 1.8
+metadata/eye_height_m = 1.62
+metadata/visual_width_m = 0.8
+metadata/collision_diameter_m = 0.6
+metadata/head_diameter_m = 0.6
+
+[node name="Body" type="MeshInstance3D" parent="PersonC" unique_id=260269982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+material_override = SubResource("StandardMaterial3D_3q845")
+mesh = SubResource("CapsuleMesh_bp5ue")
+
+[node name="Head" type="MeshInstance3D" parent="PersonC" unique_id=141826302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_kl6kt")
+
+[node name="ArmLeft" type="MeshInstance3D" parent="PersonC" unique_id=674500458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.92, 0)
+material_override = SubResource("StandardMaterial3D_3q845")
+mesh = SubResource("CapsuleMesh_xt8cd")
+
+[node name="HandLeft" type="MeshInstance3D" parent="PersonC" unique_id=1085191004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.67, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_2y6m8")
+
+[node name="LegLeft" type="MeshInstance3D" parent="PersonC" unique_id=283008619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0.34, 0)
+material_override = SubResource("StandardMaterial3D_3q845")
+mesh = SubResource("CapsuleMesh_rmnsa")
+
+[node name="FootLeft" type="MeshInstance3D" parent="PersonC" unique_id=1734934833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0.08, -0.06)
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("BoxMesh_f07om")
+
+[node name="ArmRight" type="MeshInstance3D" parent="PersonC" unique_id=1431974683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.92, 0)
+material_override = SubResource("StandardMaterial3D_3q845")
+mesh = SubResource("CapsuleMesh_njufu")
+
+[node name="HandRight" type="MeshInstance3D" parent="PersonC" unique_id=1158404289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.67, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_q2vad")
+
+[node name="LegRight" type="MeshInstance3D" parent="PersonC" unique_id=285486833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0.34, 0)
+material_override = SubResource("StandardMaterial3D_3q845")
+mesh = SubResource("CapsuleMesh_5ww3y")
+
+[node name="FootRight" type="MeshInstance3D" parent="PersonC" unique_id=657177958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0.08, -0.06)
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("BoxMesh_73tgu")
+
+[node name="FrontMarker" type="MeshInstance3D" parent="PersonC" unique_id=1557307404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, -0.22)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("BoxMesh_ut1rd")
+
+[node name="Collision" type="CollisionShape3D" parent="PersonC" unique_id=368650058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_5uyeq")
+
+[node name="EyePoint" type="Marker3D" parent="PersonC" unique_id=324898501]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62, 0)
+
+[node name="PersonLabel" type="Label3D" parent="PersonC" unique_id=1083982150 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+pixel_size = 0.0035
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "C"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="PersonD" type="StaticBody3D" parent="." unique_id=1365231672]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -34, 0.7, 28.5)
+metadata/height_m = 1.8
+metadata/eye_height_m = 1.62
+metadata/visual_width_m = 0.8
+metadata/collision_diameter_m = 0.6
+metadata/head_diameter_m = 0.6
+
+[node name="Body" type="MeshInstance3D" parent="PersonD" unique_id=1100718994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+material_override = SubResource("StandardMaterial3D_riaq1")
+mesh = SubResource("CapsuleMesh_xi8co")
+
+[node name="Head" type="MeshInstance3D" parent="PersonD" unique_id=1113372450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_b8ack")
+
+[node name="ArmLeft" type="MeshInstance3D" parent="PersonD" unique_id=1927070573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.92, 0)
+material_override = SubResource("StandardMaterial3D_riaq1")
+mesh = SubResource("CapsuleMesh_3p5rt")
+
+[node name="HandLeft" type="MeshInstance3D" parent="PersonD" unique_id=1659480381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.67, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_ijt3n")
+
+[node name="LegLeft" type="MeshInstance3D" parent="PersonD" unique_id=836578624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0.34, 0)
+material_override = SubResource("StandardMaterial3D_riaq1")
+mesh = SubResource("CapsuleMesh_ky357")
+
+[node name="FootLeft" type="MeshInstance3D" parent="PersonD" unique_id=2147463726]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0.08, -0.06)
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("BoxMesh_t0s8c")
+
+[node name="ArmRight" type="MeshInstance3D" parent="PersonD" unique_id=370698369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.92, 0)
+material_override = SubResource("StandardMaterial3D_riaq1")
+mesh = SubResource("CapsuleMesh_aiu45")
+
+[node name="HandRight" type="MeshInstance3D" parent="PersonD" unique_id=1732395120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.67, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_1xfgk")
+
+[node name="LegRight" type="MeshInstance3D" parent="PersonD" unique_id=579930839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0.34, 0)
+material_override = SubResource("StandardMaterial3D_riaq1")
+mesh = SubResource("CapsuleMesh_3o3pa")
+
+[node name="FootRight" type="MeshInstance3D" parent="PersonD" unique_id=784823553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0.08, -0.06)
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("BoxMesh_weti2")
+
+[node name="FrontMarker" type="MeshInstance3D" parent="PersonD" unique_id=718344130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, -0.22)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("BoxMesh_g1vsq")
+
+[node name="Collision" type="CollisionShape3D" parent="PersonD" unique_id=1023635374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_rumuw")
+
+[node name="EyePoint" type="Marker3D" parent="PersonD" unique_id=1562037302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62, 0)
+
+[node name="PersonLabel" type="Label3D" parent="PersonD" unique_id=868894163 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+pixel_size = 0.0035
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "D"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="PersonE" type="StaticBody3D" parent="." unique_id=305494089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -10, 26.5)
+visible = false
+collision_layer = 0
+metadata/height_m = 1.8
+metadata/eye_height_m = 1.62
+metadata/visual_width_m = 0.8
+metadata/collision_diameter_m = 0.6
+metadata/head_diameter_m = 0.6
+metadata/sizing_only = true
+
+[node name="Body" type="MeshInstance3D" parent="PersonE" unique_id=345418964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+material_override = SubResource("StandardMaterial3D_3g7d1")
+mesh = SubResource("CapsuleMesh_q6r7v")
+
+[node name="Head" type="MeshInstance3D" parent="PersonE" unique_id=374106405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_k663l")
+
+[node name="ArmLeft" type="MeshInstance3D" parent="PersonE" unique_id=1940422488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.92, 0)
+material_override = SubResource("StandardMaterial3D_3g7d1")
+mesh = SubResource("CapsuleMesh_eycv1")
+
+[node name="HandLeft" type="MeshInstance3D" parent="PersonE" unique_id=716729072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.67, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_bqpfk")
+
+[node name="LegLeft" type="MeshInstance3D" parent="PersonE" unique_id=745082148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0.34, 0)
+material_override = SubResource("StandardMaterial3D_3g7d1")
+mesh = SubResource("CapsuleMesh_3opmj")
+
+[node name="FootLeft" type="MeshInstance3D" parent="PersonE" unique_id=1222126183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0.08, -0.06)
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("BoxMesh_ft4a0")
+
+[node name="ArmRight" type="MeshInstance3D" parent="PersonE" unique_id=437135101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.92, 0)
+material_override = SubResource("StandardMaterial3D_3g7d1")
+mesh = SubResource("CapsuleMesh_khvy5")
+
+[node name="HandRight" type="MeshInstance3D" parent="PersonE" unique_id=466594214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.67, 0)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("SphereMesh_wlym4")
+
+[node name="LegRight" type="MeshInstance3D" parent="PersonE" unique_id=1932528260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0.34, 0)
+material_override = SubResource("StandardMaterial3D_3g7d1")
+mesh = SubResource("CapsuleMesh_denqx")
+
+[node name="FootRight" type="MeshInstance3D" parent="PersonE" unique_id=394377484]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0.08, -0.06)
+material_override = SubResource("StandardMaterial3D_0vmsd")
+mesh = SubResource("BoxMesh_brsl7")
+
+[node name="FrontMarker" type="MeshInstance3D" parent="PersonE" unique_id=1934423085]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, -0.22)
+material_override = SubResource("StandardMaterial3D_idgkm")
+mesh = SubResource("BoxMesh_6n11m")
+
+[node name="Collision" type="CollisionShape3D" parent="PersonE" unique_id=740308848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_dqxux")
+
+[node name="EyePoint" type="Marker3D" parent="PersonE" unique_id=1415367604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62, 0)
+
+[node name="PersonLabel" type="Label3D" parent="PersonE" unique_id=37928043 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+pixel_size = 0.0035
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "E"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0035
+
+[node name="Cargo" type="Node3D" parent="." unique_id=819871095]
+
+[node name="B1" type="StaticBody3D" parent="Cargo" unique_id=1785191528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0, 25.3)
+metadata/cargo_type = "box"
+metadata/size_m = Vector3(0.6, 0.6, 0.6)
+metadata/mass_kg = 20.0
+
+[node name="Geometry" type="MeshInstance3D" parent="Cargo/B1" unique_id=1341312595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = SubResource("StandardMaterial3D_lgpc6")
+mesh = SubResource("BoxMesh_b160g")
+
+[node name="Collision" type="CollisionShape3D" parent="Cargo/B1" unique_id=1636324465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_sv6d4")
+
+[node name="CargoLabel" type="Label3D" parent="Cargo/B1" unique_id=1863704351 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78000003, 0)
+pixel_size = 0.0045
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "B1 · 木箱"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0045
+
+[node name="B2" type="StaticBody3D" parent="Cargo" unique_id=1153757718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 25.3)
+metadata/cargo_type = "box"
+metadata/size_m = Vector3(0.6, 0.6, 0.6)
+metadata/mass_kg = 20.0
+
+[node name="Geometry" type="MeshInstance3D" parent="Cargo/B2" unique_id=139473110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = SubResource("StandardMaterial3D_lgpc6")
+mesh = SubResource("BoxMesh_b28rr")
+
+[node name="Collision" type="CollisionShape3D" parent="Cargo/B2" unique_id=386737980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_i8qlp")
+
+[node name="CargoLabel" type="Label3D" parent="Cargo/B2" unique_id=1007363925 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78000003, 0)
+pixel_size = 0.0045
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "B2 · 木箱"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0045
+
+[node name="B3" type="StaticBody3D" parent="Cargo" unique_id=1144281923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0, 26.5)
+metadata/cargo_type = "box"
+metadata/size_m = Vector3(0.6, 0.6, 0.6)
+metadata/mass_kg = 20.0
+
+[node name="Geometry" type="MeshInstance3D" parent="Cargo/B3" unique_id=2128588333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = SubResource("StandardMaterial3D_lgpc6")
+mesh = SubResource("BoxMesh_rn454")
+
+[node name="Collision" type="CollisionShape3D" parent="Cargo/B3" unique_id=1919193241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_6qtn1")
+
+[node name="CargoLabel" type="Label3D" parent="Cargo/B3" unique_id=71945621 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78000003, 0)
+pixel_size = 0.0045
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "B3 · 木箱"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0045
+
+[node name="D1" type="StaticBody3D" parent="Cargo" unique_id=962207209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 26.5)
+metadata/cargo_type = "barrel"
+metadata/size_m = Vector3(0.6, 0.9, 0.6)
+metadata/mass_kg = 60.0
+
+[node name="Geometry" type="MeshInstance3D" parent="Cargo/D1" unique_id=1537186003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+material_override = SubResource("StandardMaterial3D_3g7d1")
+mesh = SubResource("CylinderMesh_4scbm")
+
+[node name="Collision" type="CollisionShape3D" parent="Cargo/D1" unique_id=906626973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+shape = SubResource("CylinderShape3D_o44ok")
+
+[node name="CargoLabel" type="Label3D" parent="Cargo/D1" unique_id=1849248703 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0799999, 0)
+pixel_size = 0.0045
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "D1 · 圆桶"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0045
+
+[node name="D2" type="StaticBody3D" parent="Cargo" unique_id=665214671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 27.8)
+metadata/cargo_type = "barrel"
+metadata/size_m = Vector3(0.6, 0.9, 0.6)
+metadata/mass_kg = 60.0
+
+[node name="Geometry" type="MeshInstance3D" parent="Cargo/D2" unique_id=293721388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+material_override = SubResource("StandardMaterial3D_3g7d1")
+mesh = SubResource("CylinderMesh_kco1o")
+
+[node name="Collision" type="CollisionShape3D" parent="Cargo/D2" unique_id=733311316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+shape = SubResource("CylinderShape3D_o3cc4")
+
+[node name="CargoLabel" type="Label3D" parent="Cargo/D2" unique_id=58920782 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0799999, 0)
+pixel_size = 0.0045
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "D2 · 圆桶"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0045
+
+[node name="H1" type="StaticBody3D" parent="Cargo" unique_id=497285029]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0, 28.4)
+metadata/cargo_type = "heavy"
+metadata/size_m = Vector3(0.8, 0.6, 1)
+metadata/mass_kg = 150.0
+
+[node name="Geometry" type="MeshInstance3D" parent="Cargo/H1" unique_id=14787677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = SubResource("StandardMaterial3D_riaq1")
+mesh = SubResource("BoxMesh_14661")
+
+[node name="Collision" type="CollisionShape3D" parent="Cargo/H1" unique_id=1796030417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_biyjf")
+
+[node name="CargoLabel" type="Label3D" parent="Cargo/H1" unique_id=621504166 groups=["scale_labels"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78000003, 0)
+pixel_size = 0.0045
+billboard = 1
+modulate = Color(0.14901961, 0.23137255, 0.28627452, 1)
+outline_modulate = Color(0.9490196, 0.94509804, 0.9098039, 1)
+text = "H1 · 重物"
+font = SubResource("SystemFont_1nfjg")
+font_size = 40
+outline_size = 7
+metadata/base_pixel_size = 0.0045
+
+[node name="ViewCamera" type="Camera3D" parent="." unique_id=664225143]
+transform = Transform3D(0.77751106, -0.21682946, 0.59030634, 0, 0.9386789, 0.34479257, -0.6288693, -0.26808003, 0.72983325, -24, 8, 40.5)
+current = true
+fov = 60.0
+near = 0.04
+far = 180.0
+
+[node name="Observer" type="CharacterBody3D" parent="." unique_id=1923427282]
+collision_layer = 0
+floor_snap_length = 0.15
+
+[node name="Collision" type="CollisionShape3D" parent="Observer" unique_id=1599237237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_kp6oo")
